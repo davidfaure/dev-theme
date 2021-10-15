@@ -11,7 +11,8 @@ const Background = dynamic(() => import('./Background'), { ssr: false })
 import LoadingScreen from './LoadingScreen'
 import Wave from '../Waves/Wave'
 
-import bg from '../../public/images/hero-background.png'
+// import bg from '../../public/images/hero-background.png'
+import bg from '../../public/images/hero-background-blue.png'
 
 import { ThemeContext } from '../../context/ThemeContext'
 
@@ -121,8 +122,8 @@ const Wrapper = styled.section`
   height: 100%;
   background: linear-gradient(
     45deg,
-    hsla(288, 100%, 26%, 1),
-    hsla(288, 100%, 36%, 1)
+    hsla(225, 100%, 26%, 1),
+    hsla(225, 100%, 36%, 1)
   );
   position: relative;
   overflow: hidden;
@@ -131,7 +132,7 @@ const Wrapper = styled.section`
     content: '';
     background: ${(props) =>
       props.darkMode
-        ? 'linear-gradient(145deg, hsla(288, 100%, 26%, 0.2), hsla(288, 100%, 16%, 0.3))'
+        ? 'linear-gradient(145deg, hsla(225, 100%, 26%, 0.2), hsla(225, 100%, 16%, 0.3))'
         : 'none'};
     position: absolute;
     top: 0;
@@ -203,15 +204,15 @@ const HeadingText = styled(m.h2)`
   background: radial-gradient(
     circle farthest-corner at left center,
     hsla(195, 100%, 90%, 1) -50%,
-    hsla(288, 100%, 95%, 1) 50%
+    hsla(225, 100%, 95%, 1) 50%
   );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 5px hsla(288, 98%, 90%, 0.1));
+  filter: drop-shadow(0 0 5px hsla(225, 98%, 90%, 0.1));
 
   @media (min-width: 800px) {
-    font-size: clamp(5rem, calc(4vw + 1rem), 7rem);
+    font-size: clamp(5rem, calc(4vw + 1rem), 6rem);
   }
 `
 
@@ -237,7 +238,7 @@ const LaptopImageWrapper = styled(m.div)`
     background: radial-gradient(
       circle farthest-corner at left center,
       hsla(195, 92%, 90%, 0.16) 0%,
-      hsla(288, 98%, 90%, 0.16) 110%
+      hsla(225, 98%, 90%, 0.16) 110%
     );
     filter: blur(50px);
     z-index: -1;

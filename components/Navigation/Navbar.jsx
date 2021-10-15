@@ -100,7 +100,7 @@ const LogoText = styled.h1`
   margin: 0;
   font-size: 2.8rem;
   letter-spacing: -0.01em;
-  color: hsl(288, 100%, 98%);
+  color: hsl(225, 100%, 98%);
 
   @media (min-width: 1100px) {
     font-size: 3rem;
@@ -132,7 +132,7 @@ const MenuItem = styled.li`
 
   & a {
     padding: 3px 8px;
-    color: hsl(288, 100%, 97%);
+    color: hsl(225, 100%, 97%);
   }
 `
 
@@ -161,6 +161,6 @@ const SocialsItem = styled(motion.li)`
   }
 
     & a {
-    color: hsl(288, 100%, 97%);
+    color: hsl(225, 100%, 97%);
   }
 `

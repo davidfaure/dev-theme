@@ -14,6 +14,8 @@ import { about } from '../../data'
 
 const About = () => {
   const { darkMode } = useContext(ThemeContext)
+  const { SENDGRID_EMAIL } = process.env
+  console.log(SENDGRID_EMAIL)
 
   return (
     <Wrapper id='about'>
@@ -156,7 +158,7 @@ const ProfileImageWrapper = styled.div`
     background: ${(props) =>
       props.darkMode
         ? 'none'
-        : 'radial-gradient(circle farthest-corner at left center, hsla(195, 92%, 90%, 1) 0%,hsla(288, 98%, 90%, 1) 110%)'};
+        : 'radial-gradient(circle farthest-corner at left center, hsla(195, 92%, 90%, 1) 0%,hsla(225, 98%, 90%, 1) 110%)'};
     filter: blur(20px);
     border-radius: 50%;
     z-index: -1;
@@ -200,6 +202,10 @@ const BioText = styled.div`
     @media (min-width: 1024px) {
       font-size: 1.8rem;
     }
+  }
+  & h3 {
+    line-height: 1.6;
+    font-size: 2.6rem;
   }
 `
 

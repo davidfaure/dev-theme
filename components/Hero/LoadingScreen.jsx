@@ -64,8 +64,9 @@ const LoadingScreen = () => {
         ) : (
           <picture>
             <source
-              srcSet={hero.laptopInnerImage.split('.')[0] + '.webp'}
-              type='image/webp'
+              // srcSet={hero.laptopInnerImage.split('.')[0] + '.webp'}
+              src={hero.laptopInnerImage}
+              // type='image/webp'
             />
             <LaptopInnerImage
               src={hero.laptopInnerImage}

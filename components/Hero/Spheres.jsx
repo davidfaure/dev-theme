@@ -62,7 +62,7 @@ const Spheres = () => {
       <pointLight position={[-10, -10, -10]} />
       <instancedMesh ref={mesh} args={[null, null, count]}>
         <sphereBufferGeometry attach='geometry' args={[0.3, 20, 20]} />
-        <meshPhongMaterial attach='material' color='#f9dfff' />
+        <meshPhongMaterial attach='material' color='#E0E8FF' />
       </instancedMesh>
     </>
   )

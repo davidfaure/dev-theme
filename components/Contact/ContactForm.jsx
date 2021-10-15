@@ -44,7 +44,7 @@ const ContactForm = () => {
     }
 
     if (name === '' || email === '' || subject === '' || message === '') {
-      setErrors('Please fill out all fields')
+      setErrors('Merci de remplir tous les champs')
       return
     }
 
@@ -65,7 +65,7 @@ const ContactForm = () => {
       setSubject('')
       setMessage('')
     } catch (err) {
-      setErrors('An error occurred. Please try again.')
+      setErrors('Erreur inattendue. Veuillez réessayer.')
     } finally {
       setIsSending(false)
     }
@@ -91,7 +91,7 @@ const ContactForm = () => {
                   exit={{ opacity: 0 }}
                   transition={{ type: 'spring', damping: 12, delay: 0.1 }}
                 >
-                  {'Your message was successfully sent :)'}
+                  {'Ton message a bien été envoyé'}
                 </SuccessTitle>
                 <Confetti />
               </SuccessMsgWrapper>
@@ -99,7 +99,7 @@ const ContactForm = () => {
               <>
                 <InputRow>
                   <InputFieldWrapper>
-                    <Label htmlFor='name'>Name</Label>
+                    <Label htmlFor='name'>Nom</Label>
                     <InputField
                       id='name'
                       name='name'
@@ -120,7 +120,7 @@ const ContactForm = () => {
                 </InputRow>
                 <InputRow style={{ gridTemplateColumns: '1fr' }}>
                   <InputFieldWrapper>
-                    <Label htmlFor='subject'>Subject</Label>
+                    <Label htmlFor='subject'>Sujet</Label>
                     <InputField
                       id='subject'
                       name='subject'
@@ -141,10 +141,10 @@ const ContactForm = () => {
                 </InputFieldWrapper>
                 <Button whileHover={{ y: -1 }} whileTap={{ y: 1 }}>
                   {isSending ? (
-                    <>Sending...</>
+                    <>Envoie...</>
                   ) : (
                     <>
-                      Send <FiSend style={{ marginLeft: 5 }} />
+                      Envoyer <FiSend style={{ marginLeft: 5 }} />
                     </>
                   )}
                 </Button>
@@ -230,7 +230,7 @@ const InputField = styled.input`
 
   &:focus {
     border: 1px solid transparent;
-    outline-color: hsl(288, 100%, 78%);
+    outline-color: hsl(225, 100%, 78%);
     outline-offset: 2px;
   }
 `
@@ -250,7 +250,7 @@ const TextareaField = styled.textarea`
 
   &:focus {
     border: 1px solid transparent;
-    outline-color: hsl(288, 100%, 78%);
+    outline-color: hsl(225, 100%, 78%);
     outline-offset: 2px;
   }
 `
@@ -261,14 +261,14 @@ const Button = styled(m.button)`
   margin-top: 20px;
   font-size: 1.8rem;
   border-radius: 5px;
-  background: hsl(288, 100%, 40%);
-  color: hsl(288, 100%, 98%);
+  background: hsl(225, 100%, 40%);
+  color: hsl(225, 100%, 98%);
   font-weight: 600;
   display: flex;
   align-items: center;
   cursor: pointer;
   will-change: transform;
-  filter: drop-shadow(0 0 0.75rem hsla(288, 98%, 44%, 0.4));
+  filter: drop-shadow(0 0 0.75rem hsla(225, 98%, 44%, 0.4));
   width: 180px;
   justify-content: center;
 
@@ -278,7 +278,7 @@ const Button = styled(m.button)`
 
   &:focus {
     border: 1px solid transparent;
-    outline-color: hsla(288, 98%, 54%, 1);
+    outline-color: hsla(225, 98%, 54%, 1);
     outline-offset: 1px;
   }
 `
