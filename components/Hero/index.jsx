@@ -17,15 +17,29 @@ import bg from '../../public/images/hero-background-blue.png'
 import { ThemeContext } from '../../context/ThemeContext'
 
 import { hero } from '../../data'
+import { Canvas } from '@react-three/fiber'
+import { FaCheck, FaDownload, FaSpinner } from 'react-icons/fa'
 
 const Hero = () => {
   const isDesktop = useMedia({
     minWidth: 800,
   })
 
+  const [isDownloading, setIsDownloading] = useState(false)
+  const [isDownloaded, setIsDownloaded] = useState(false)
+
   const { darkMode } = useContext(ThemeContext)
 
   const [hasLoaded, setHasLoaded] = useState(false)
+
+  React.useEffect(() => {
+    if (isDownloading) {
+      setTimeout(() => {
+        setIsDownloading(false)
+        setIsDownloaded(true)
+      }, 2000)
+    }
+  }, [isDownloading])
 
   return (
     <Wrapper darkMode={darkMode}>
@@ -51,6 +65,32 @@ const Hero = () => {
               }}
               dangerouslySetInnerHTML={{ __html: hero.headingText }}
             />
+            {!isDownloaded ? (
+              <Button
+                whileHover={{ y: -1 }}
+                whileTap={{ y: 1 }}
+                onClick={() => setIsDownloading(true)}
+              >
+                <a
+                  href='/CV/David_Faure_Developpeur_Full_Stack.pdf'
+                  aria-label='CV'
+                  download
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Télécharger CV{' '}
+                  {!isDownloading ? (
+                    <FaDownload style={{ marginLeft: 10 }} />
+                  ) : (
+                    <FaSpinner style={{ marginLeft: 10 }} />
+                  )}
+                </a>
+              </Button>
+            ) : (
+              <Button>
+                Téléchargé <FaCheck style={{ marginLeft: 10 }} />
+              </Button>
+            )}
           </Parallax>
           {isDesktop ? (
             <Parallax offset={-30} offsetInitial={-30}>
@@ -118,6 +158,38 @@ const Hero = () => {
 export default Hero
 
 // Styles
+
+const Button = styled(m.button)`
+  border: none;
+  padding: 0.9em 1.3em;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  background: hsl(225, 100%, 40%);
+  color: hsl(225, 100%, 98%);
+  font-weight: 600;
+  display: flex;
+  cursor: pointer;
+  will-change: transform;
+  filter: drop-shadow(0 0 0.75rem hsla(225, 98%, 44%, 0.4));
+  width: 220px;
+  justify-content: space-around;
+
+  @media (max-width: 500px) {
+    width: 70%;
+  }
+
+  & a {
+    color: hsl(225, 100%, 98%);
+  }
+
+  &:focus {
+    border: 1px solid transparent;
+    outline-color: hsla(225, 98%, 54%, 1);
+    outline-offset: 1px;
+  }
+`
+
 const Wrapper = styled.section`
   height: 100%;
   background: linear-gradient(
