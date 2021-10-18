@@ -17,7 +17,7 @@ const DarkModeToggle = () => {
       style={{
         background: !darkMode
           ? 'rgba(244, 244, 244, 0.3)'
-          : 'hsla(305, 56%, 55%, 0.3)',
+          : 'hsla(242, 56%, 55%, 0.3)',
         justifyContent: !darkMode ? 'flex-start' : 'flex-end',
       }}
     >
@@ -27,8 +27,8 @@ const DarkModeToggle = () => {
         onClick={() => toggleDarkMode()}
         style={{
           background: !darkMode
-            ? 'linear-gradient(45deg, hsla(213, 66%, 66%, 0.8),  hsla(305, 56%, 55%, 0.8))'
-            : 'linear-gradient(45deg, hsla(0, 66%, 66%, 0.8),  hsla(305, 56%, 55%, 0.8))',
+            ? 'linear-gradient(45deg, hsla(213, 66%, 66%, 0.8),  hsla(242, 56%, 55%, 0.8))'
+            : 'linear-gradient(45deg, hsla(225, 66%, 66%, 0.8),  hsla(242, 56%, 55%, 0.8))',
         }}
         animate={{ x: !darkMode ? -2 : 2 }}
         transition={{ type: 'spring', damping: 10 }}
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   cursor: pointer;
   margin-left: 40px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-  border: 1px solid hsla(305, 56%, 55%, 0.1);
+  border: 1px solid hsla(242, 56%, 55%, 0.1);
   transition: background 400ms ease;
 
   @media (max-width: 500px) {

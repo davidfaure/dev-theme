@@ -11,20 +11,35 @@ const Background = dynamic(() => import('./Background'), { ssr: false })
 import LoadingScreen from './LoadingScreen'
 import Wave from '../Waves/Wave'
 
-import bg from '../../public/images/hero-background.png'
+// import bg from '../../public/images/hero-background.png'
+import bg from '../../public/images/hero-background-blue.png'
 
 import { ThemeContext } from '../../context/ThemeContext'
 
 import { hero } from '../../data'
+import { Canvas } from '@react-three/fiber'
+import { FaCheck, FaDownload, FaSpinner } from 'react-icons/fa'
 
 const Hero = () => {
   const isDesktop = useMedia({
     minWidth: 800,
   })
 
+  const [isDownloading, setIsDownloading] = useState(false)
+  const [isDownloaded, setIsDownloaded] = useState(false)
+
   const { darkMode } = useContext(ThemeContext)
 
   const [hasLoaded, setHasLoaded] = useState(false)
+
+  React.useEffect(() => {
+    if (isDownloading) {
+      setTimeout(() => {
+        setIsDownloading(false)
+        setIsDownloaded(true)
+      }, 2000)
+    }
+  }, [isDownloading])
 
   return (
     <Wrapper darkMode={darkMode}>
@@ -50,6 +65,32 @@ const Hero = () => {
               }}
               dangerouslySetInnerHTML={{ __html: hero.headingText }}
             />
+            {!isDownloaded ? (
+              <Button
+                whileHover={{ y: -1 }}
+                whileTap={{ y: 1 }}
+                onClick={() => setIsDownloading(true)}
+              >
+                <a
+                  href='/CV/David_Faure_Developpeur_Full_Stack.pdf'
+                  aria-label='CV'
+                  download
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Télécharger CV{' '}
+                  {!isDownloading ? (
+                    <FaDownload style={{ marginLeft: 10 }} />
+                  ) : (
+                    <FaSpinner style={{ marginLeft: 10 }} />
+                  )}
+                </a>
+              </Button>
+            ) : (
+              <Button>
+                Téléchargé <FaCheck style={{ marginLeft: 10 }} />
+              </Button>
+            )}
           </Parallax>
           {isDesktop ? (
             <Parallax offset={-30} offsetInitial={-30}>
@@ -117,12 +158,44 @@ const Hero = () => {
 export default Hero
 
 // Styles
+
+const Button = styled(m.button)`
+  border: none;
+  padding: 0.9em 1.3em;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  background: hsl(225, 100%, 40%);
+  color: hsl(225, 100%, 98%);
+  font-weight: 600;
+  display: flex;
+  cursor: pointer;
+  will-change: transform;
+  filter: drop-shadow(0 0 0.75rem hsla(225, 98%, 44%, 0.4));
+  width: 220px;
+  justify-content: space-around;
+
+  @media (max-width: 500px) {
+    width: 70%;
+  }
+
+  & a {
+    color: hsl(225, 100%, 98%);
+  }
+
+  &:focus {
+    border: 1px solid transparent;
+    outline-color: hsla(225, 98%, 54%, 1);
+    outline-offset: 1px;
+  }
+`
+
 const Wrapper = styled.section`
   height: 100%;
   background: linear-gradient(
     45deg,
-    hsla(288, 100%, 26%, 1),
-    hsla(288, 100%, 36%, 1)
+    hsla(225, 100%, 26%, 1),
+    hsla(225, 100%, 36%, 1)
   );
   position: relative;
   overflow: hidden;
@@ -131,7 +204,7 @@ const Wrapper = styled.section`
     content: '';
     background: ${(props) =>
       props.darkMode
-        ? 'linear-gradient(145deg, hsla(288, 100%, 26%, 0.2), hsla(288, 100%, 16%, 0.3))'
+        ? 'linear-gradient(145deg, hsla(225, 100%, 26%, 0.2), hsla(225, 100%, 16%, 0.3))'
         : 'none'};
     position: absolute;
     top: 0;
@@ -203,15 +276,15 @@ const HeadingText = styled(m.h2)`
   background: radial-gradient(
     circle farthest-corner at left center,
     hsla(195, 100%, 90%, 1) -50%,
-    hsla(288, 100%, 95%, 1) 50%
+    hsla(225, 100%, 95%, 1) 50%
   );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 5px hsla(288, 98%, 90%, 0.1));
+  filter: drop-shadow(0 0 5px hsla(225, 98%, 90%, 0.1));
 
   @media (min-width: 800px) {
-    font-size: clamp(5rem, calc(4vw + 1rem), 7rem);
+    font-size: clamp(5rem, calc(4vw + 1rem), 6rem);
   }
 `
 
@@ -237,7 +310,7 @@ const LaptopImageWrapper = styled(m.div)`
     background: radial-gradient(
       circle farthest-corner at left center,
       hsla(195, 92%, 90%, 0.16) 0%,
-      hsla(288, 98%, 90%, 0.16) 110%
+      hsla(225, 98%, 90%, 0.16) 110%
     );
     filter: blur(50px);
     z-index: -1;

@@ -25,7 +25,7 @@ const Projects = () => {
         <InfoText dangerouslySetInnerHTML={{ __html: projects.infoText }} />
         <Parallax offset={10} offsetInitial={30}>
           <CardList totalProjects={projects.projectsData.length}>
-            {projects.projectsData.slice(0, 3).map((project, index) => (
+            {projects.projectsData.map((project, index) => (
               <Card
                 key={project.id}
                 project={project}
@@ -73,7 +73,7 @@ const HeadingText = styled.h2`
   background: radial-gradient(
     circle farthest-corner at left center,
     hsl(195, 100%, 90%) -100%,
-    hsl(288, 100%, 90%) 30%
+    hsl(225, 100%, 90%) 30%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -93,7 +93,7 @@ const InfoText = styled.div`
 
   & p {
     line-height: 1.6;
-    color: hsl(288, 100%, 92%);
+    color: hsl(225, 100%, 92%);
     max-width: 120ch;
     font-size: 1.6rem;
 
