@@ -14,9 +14,6 @@ import { about } from '../../data'
 
 const About = () => {
   const { darkMode } = useContext(ThemeContext)
-  const { SENDGRID_EMAIL } = process.env
-  console.log(SENDGRID_EMAIL)
-
   return (
     <Wrapper id='about'>
       <LazyMotion features={domAnimation}>
