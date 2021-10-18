@@ -141,7 +141,7 @@ const ContactForm = () => {
                 </InputFieldWrapper>
                 <Button whileHover={{ y: -1 }} whileTap={{ y: 1 }}>
                   {isSending ? (
-                    <>Envoie...</>
+                    <>Envoi...</>
                   ) : (
                     <>
                       Envoyer <FiSend style={{ marginLeft: 5 }} />
