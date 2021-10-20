@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useMedia } from 'react-use-media'
 import Image from 'next/image'
-import { FaGithub } from 'react-icons/fa'
+import { VscGlobe } from 'react-icons/vsc'
+import { BiCodeAlt } from 'react-icons/bi'
+
 import {
   LazyMotion,
   domAnimation,
@@ -42,7 +44,7 @@ const Card = ({ project, index, totalProjects }) => {
                 alt={project.title}
                 placeholder='blur'
                 objectFit='cover'
-                objectPosition='center'
+                objectPosition='top'
                 blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAjSURBVHgB7cqhEQAACAJAdP897d6ZZQUCkc9fN/sQNESJnkgetQPh0RGf5wAAAABJRU5ErkJggg=='
               />
             </ProjectImageContainer>
@@ -62,50 +64,76 @@ const Card = ({ project, index, totalProjects }) => {
               <StackButton
                 whileHover={{ y: -1 }}
                 whileTap={{ y: 1 }}
+                // onClick={() => setSelectedId(project.id)}
                 onMouseEnter={() => setSelectedId(project.id)}
                 onMouseLeave={() => setSelectedId(null)}
               >
-                Stack
+                Stack Technique
               </StackButton>
-              {project.githubLink && (
-                <a
-                  href={project.githubLink}
-                  target='_blank'
-                  rel='noreferrer'
-                  aria-label='Github link'
-                >
-                  <FaGithub
-                    style={{
-                      fontSize: '2rem',
-                      marginTop: -7,
-                      marginLeft: 20,
-                      cursor: 'pointer',
-                      color: 'hsla(288, 98%, 30%, 1)',
-                    }}
-                  />
-                </a>
-              )}
             </Heading>
             <Description>{project.description}</Description>
-            <Button
-              whileHover={{ y: -1 }}
-              whileTap={{ y: 1 }}
-              onClick={() => setSelectedId(project.id)}
-            >
-              View project
-            </Button>
+            <ButtonContainer>
+              <Button whileHover={{ y: -1 }} whileTap={{ y: 1 }}>
+                <a
+                  href={project.link}
+                  target='_blank'
+                  rel='noreferrer'
+                  tabIndex={-1}
+                >
+                  <VscGlobe
+                    style={{
+                      marginRight: 15,
+                      fontSize: '2.5rem',
+                      color: 'hsl(225, 100%, 94%)',
+                    }}
+                  />
+                  Démo
+                </a>
+              </Button>
+              {project.githubLink && (
+                <ButtonCode whileHover={{ y: -1 }} whileTap={{ y: 1 }}>
+                  <a
+                    href={project.githubLink}
+                    target='_blank'
+                    rel='noreferrer'
+                    tabIndex={-1}
+                  >
+                    <BiCodeAlt
+                      style={{
+                        marginRight: 15,
+                        fontSize: '2.5rem',
+                        color: 'hsl(225, 100%, 94%)',
+                      }}
+                    />
+                    Code source
+                  </a>
+                </ButtonCode>
+              )}
+            </ButtonContainer>
           </BottomContainer>
           <AnimatePresence>
             {selectedId && (
-              <Container
+              <ContainerModal
                 key='modal'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                length={project.stack.length}
+                darkMode={darkMode}
               >
-                <h1>{project.title}</h1>
-                <button onClick={() => setSelectedId(null)}>Close</button>
-              </Container>
+                <ContainerBlur />
+                {project.stack.map(({ tech, logo }) => (
+                  <picture key={tech}>
+                    <source srcSet={logo} />
+                    <Logo
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.98 }}
+                      src={logo}
+                      alt={tech}
+                    />
+                  </picture>
+                ))}
+              </ContainerModal>
             )}
           </AnimatePresence>
         </LazyMotion>
@@ -118,26 +146,58 @@ export default Card
 
 // Styles
 
-const Container = styled(m.div)`
+const ContainerModal = styled(m.div)`
   position: absolute;
   z-index: 1000;
-  padding: 80px 20px 0px;
-  max-width: 1300px;
+  max-width: 1400px;
   width: 100%;
-  height: 180px;
+  height: 280px;
   top: 0;
   left: 0;
-  border: 1px solid #fff;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0.7);
-
-  @media (min-width: 1024px) {
-    padding: 90px 40px 0px;
+  background: ${(props) =>
+    props.darkMode ? 'rgba(1, 1, 1, 0.8)' : 'rgba(255, 255, 255, 0.8)'};
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`
+const AnimBlur = keyframes`
+  O% {
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+  100% {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 `
+
+const ContainerBlur = styled.div`
+  position: absolute;
+  max-width: 1400px;
+  width: 100%;
+  height: 280px;
+  top: 0;
+  left: 0;
+  animation: ${AnimBlur} 0.1s ease-in-out;
+`
+
+const Logo = styled(m.img)`
+  width: 40px;
+  border-radius: 5px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+  z-index: 1000;
+
+  @media (min-width: 768px) {
+    width: 42px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 60px;
+  }
+`
+
 const StackButton = styled(m.button)`
   border: none;
-  margin-left: 2rem;
   font-size: 1.2rem;
   font-weight: 600;
   background: var(--projectsBackgroundColor);
@@ -146,16 +206,14 @@ const StackButton = styled(m.button)`
   color: hsl(225, 100%, 94%);
   cursor: pointer;
   white-space: nowrap;
-  margin-top: 6px;
 `
 
-const Wrapper = styled(m.li)`
+const Wrapper = styled(m.div)`
   background: hsl(225, 100%, 94%);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  flex: 1;
-  min-width: 350px;
+  max-width: 650px;
+  flex: 1 600px;
   padding: 5px 2px;
   position: relative;
   transition: box-shadow 0.15s ease-in-out;
@@ -176,10 +234,6 @@ const Wrapper = styled(m.li)`
       left: 40px;
       right: 40px;
       height: 100%;
-      background: ${(props) =>
-        props.darkMode
-          ? 'none'
-          : 'radial-gradient(circle farthest-corner at left center, hsla(195, 92%, 90%, 1) 0%,hsla(225, 98%, 90%, 1) 110%)'};
       filter: blur(30px);
       z-index: -1;
     }
@@ -207,7 +261,7 @@ const Wrapper = styled(m.li)`
 `
 
 const TopContainer = styled.div`
-  height: 180px;
+  height: 280px;
   top: 0;
   left: 0;
   position: relative;
@@ -226,53 +280,111 @@ const Heading = styled.div`
   justify-content: space-between;
   position: relative;
   z-index: 2;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `
 
 const Title = styled.h3`
-  font-size: 2rem;
+  font-size: 3.5rem;
   margin: 0;
   overflow-wrap: break-word;
   hyphens: auto;
+  margin: 10px 10px 10px 0px;
 
   a {
-    color: #392049;
+    color: #000000;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 2.5rem;
   }
 `
 
 const Description = styled.p`
-  line-height: 1.4;
+  line-height: 1.8;
   font-size: 1.6rem;
   flex: 1 0 auto;
 `
 
+const ButtonContainer = styled(m.div)`
+  display: flex;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
 const Button = styled(m.button)`
   border: none;
-  width: 100%;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  display: flex;
+  background: hsl(225, 100%, 60%);
+  color: hsl(225, 100%, 98%);
+  justify-content: center;
+  align-items: center;
   padding: 16px 30px;
   font-weight: 600;
-  font-size: 1.8rem;
+  margin-right: 25px;
+  will-change: transform;
   cursor: pointer;
-  background: radial-gradient(
-    circle farthest-corner at left center,
-    hsla(195, 92%, 60%, 1) 0%,
-    hsla(225, 98%, 60%, 1) 110%
-  );
-  border-radius: 5px;
-  filter: drop-shadow(0 0 7.5px rgba(30, 23, 253, 0.4));
+  filter: drop-shadow(0 0 0.75rem hsla(225, 98%, 64%, 0.4));
 
   & a {
-    color: #392049;
-    display: block;
+    color: hsl(225, 100%, 98%);
+    display: flex;
+    align-items: center;
   }
 
   &:focus {
     outline-color: hsla(225, 98%, 54%, 1);
   }
+
+  @media (max-width: 500px) {
+    margin-right: 0px;
+    margin-bottom: 2rem;
+    width: 220px;
+  }
+`
+
+const ButtonCode = styled(m.button)`
+  border: none;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  background: hsl(225, 100%, 40%);
+  color: hsl(225, 100%, 98%);
+  font-weight: 600;
+  display: flex;
+  cursor: pointer;
+  will-change: transform;
+  filter: drop-shadow(0 0 0.75rem hsla(225, 98%, 44%, 0.4));
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+
+  & a {
+    color: hsl(225, 100%, 98%);
+    display: flex;
+    align-items: center;
+  }
+
+  &:focus {
+    outline-color: hsla(225, 98%, 54%, 1);
+  }
+
+  @media (max-width: 500px) {
+    width: 220px;
+    padding: 16px 30px;
+  }
 `
 
 const ProjectImageContainer = styled.div`
   width: 100%;
-  height: 180px;
+  height: 280px;
 `
 
 const ProjectImage = styled(Image)`
