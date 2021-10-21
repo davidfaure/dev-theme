@@ -57,7 +57,7 @@ const Container = styled.div`
   position: relative;
   z-index: 1000;
   padding: 80px 20px 0px;
-  max-width: 1300px;
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
 
@@ -122,16 +122,17 @@ const WaveWrapper = styled.div`
   }
 `
 
-const CardList = styled.ul`
-  list-style: none;
+const CardList = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 40px;
   z-index: 200;
   position: relative;
   padding: 0;
   top: 40px;
+  width: 100%;
 
   @media (min-width: 1440px) {
     gap: 60px;
