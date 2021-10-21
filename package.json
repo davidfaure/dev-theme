@@ -25,6 +25,7 @@
     "react-canvas-confetti": "^1.2.1",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
+    "react-toastify": "^8.0.3",
     "react-use-media": "^0.3.0",
     "react-waypoint": "^10.1.0",
     "styled-components": "5.3.0",

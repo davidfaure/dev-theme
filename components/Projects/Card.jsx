@@ -51,7 +51,7 @@ const Card = ({ project, index, totalProjects }) => {
           </TopContainer>
           <BottomContainer>
             <Heading>
-              <Title>
+              <Title darkMode={darkMode}>
                 <a
                   href={project.link}
                   target='_blank'
@@ -67,11 +67,12 @@ const Card = ({ project, index, totalProjects }) => {
                 // onClick={() => setSelectedId(project.id)}
                 onMouseEnter={() => setSelectedId(project.id)}
                 onMouseLeave={() => setSelectedId(null)}
+                darkMode={darkMode}
               >
                 Stack Technique
               </StackButton>
             </Heading>
-            <Description>{project.description}</Description>
+            <Description darkMode={darkMode}>{project.description}</Description>
             <ButtonContainer>
               <Button whileHover={{ y: -1 }} whileTap={{ y: 1 }}>
                 <a
@@ -121,7 +122,7 @@ const Card = ({ project, index, totalProjects }) => {
                 length={project.stack.length}
                 darkMode={darkMode}
               >
-                <ContainerBlur />
+                {/* <ContainerBlur /> */}
                 {project.stack.map(({ tech, logo }) => (
                   <picture key={tech}>
                     <source srcSet={logo} />
@@ -151,7 +152,7 @@ const ContainerModal = styled(m.div)`
   z-index: 1000;
   max-width: 1400px;
   width: 100%;
-  height: 280px;
+  height: 286px;
   top: 0;
   left: 0;
   background: ${(props) =>
@@ -200,16 +201,19 @@ const StackButton = styled(m.button)`
   border: none;
   font-size: 1.2rem;
   font-weight: 600;
-  background: var(--projectsBackgroundColor);
+  background: ${(props) =>
+    props.darkMode ? 'hsl(225, 100%, 94%)' : 'hsl(225, 100%, 18%)'};
   padding: 6px 10px;
   border-radius: 10px;
-  color: hsl(225, 100%, 94%);
+  color: ${(props) =>
+    props.darkMode ? 'hsl(225, 100%, 18%)' : 'hsl(225, 100%, 94%)'};
   cursor: pointer;
   white-space: nowrap;
 `
 
 const Wrapper = styled(m.div)`
-  background: hsl(225, 100%, 94%);
+  background: ${(props) =>
+    props.darkMode ? '#000F3D' : 'hsl(225, 100%, 94%)'};
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   max-width: 650px;
@@ -294,7 +298,8 @@ const Title = styled.h3`
   margin: 10px 10px 10px 0px;
 
   a {
-    color: #000000;
+    ${'' /* color: #000000; */}
+    color: ${(props) => (props.darkMode ? '#FFFFFF' : '#000000')};
   }
 
   @media (max-width: 500px) {
@@ -306,6 +311,7 @@ const Description = styled.p`
   line-height: 1.8;
   font-size: 1.6rem;
   flex: 1 0 auto;
+  color: ${(props) => (props.darkMode ? '#FFFFFF' : '#000000')};
 `
 
 const ButtonContainer = styled(m.div)`

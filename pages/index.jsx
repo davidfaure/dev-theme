@@ -6,6 +6,8 @@ import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Navigation from '../components/Navigation'
 import Projects from '../components/Projects'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { metaData } from '../data'
 
@@ -26,6 +28,7 @@ export default function Home() {
       <Projects />
       <Contact />
       <Footer />
+      {/* <ToastContainer autoClose={false} /> */}
     </>
   )
 }

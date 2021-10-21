@@ -71,7 +71,7 @@ export const hero = {
 // *** ABOUT *** --------------
 export const about = {
   headerText: 'À propos',
-  profileImage: '/images/about/David_Faure_Pro.webp',
+  profileImage: '/images/about/David_Faure_Pro_Small.jpg',
   bioText: `<p>Curieux, persévérant et autonome, j'ai eu la chance d'exercer plusieurs métiers qui m'ont permis d'acquérir diverses compétences techniques mais surtout humaines. Après 9 ans d'expérience chez Apple, j'ai choisi en 2020 de revenir à ma première passion :</p><h3>Le Développement Web.</h3><p>Après un diplôme d'Analyste Programmeur obtenu il y a 13 ans, j'ai choisi pour me remettre à niveau la Wild Code School, labellisée Grande Ecole du Numérique, qui utilise une pédagogie inversée et permet de travailler sur 5 projets différents (dont un avec un vrai client) au sein d'équipes différentes en méthodologie agile (SCRUM). C'est une formation intensive de 5 mois où on mise sur l'entraide, la recherche et le développement de l'autonomie de chacun.</p>`,
 }
 
@@ -80,6 +80,7 @@ export const techImages = [
   { tech: 'redux', logo: '/images/tech/redux.png' },
   { tech: 'javascript', logo: '/images/tech/javascript.png' },
   { tech: 'typescript', logo: '/images/tech/typescript.png' },
+  { tech: 'framerMotion', logo: '/images/tech/framer-motion.png' },
   { tech: 'socketIo', logo: '/images/tech/socketio.png' },
   { tech: 'nodejs', logo: '/images/tech/node.png' },
 ]
