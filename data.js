@@ -5,7 +5,7 @@ import { SiGmail } from 'react-icons/si'
 // *** META DATA *** -----------
 export const metaData = {
   title: 'David Faure | Portfolio',
-  description: 'Welcome to my portfolio website',
+  description: 'Bienevenue sur mon Portfolio',
   ogImage: '/images/og-image.jpg',
 }
 
