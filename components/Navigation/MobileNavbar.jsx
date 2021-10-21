@@ -57,7 +57,7 @@ const MobileNavbar = () => {
       <LazyMotion features={domAnimation}>
         <Wrapper>
           <Container>
-            <LogoText>John Smith</LogoText>
+            <LogoText>David Faure</LogoText>
             <div onClick={() => setToggleDropdown((prevState) => !prevState)}>
               <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
                 <path
