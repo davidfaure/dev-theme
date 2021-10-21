@@ -84,7 +84,13 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
   }
+  
+html::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
 
   body {
     margin: 0;
