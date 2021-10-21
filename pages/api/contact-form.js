@@ -1,5 +1,5 @@
 const sgMail = require('@sendgrid/mail')
-const { SENDGRID_API_KEY } = process.env
+const { SENDGRID_API_KEY, SENDGRID_EMAIL } = process.env
 
 const contactForm = async (req, res) => {
   const { name, email, subject, message } = req.body
@@ -14,8 +14,8 @@ const contactForm = async (req, res) => {
   `
 
   const msg = {
-    to: process.env.SENDGRID_EMAIL,
-    from: process.env.SENDGRID_EMAIL,
+    to: SENDGRID_EMAIL,
+    from: email,
     subject: `Contact form - Portfolio: ${subject}`,
     html: html,
   }

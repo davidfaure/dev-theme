@@ -25,7 +25,7 @@ const Projects = () => {
         <InfoText dangerouslySetInnerHTML={{ __html: projects.infoText }} />
         <Parallax offset={10} offsetInitial={30}>
           <CardList totalProjects={projects.projectsData.length}>
-            {projects.projectsData.slice(0, 3).map((project, index) => (
+            {projects.projectsData.map((project, index) => (
               <Card
                 key={project.id}
                 project={project}
@@ -57,7 +57,7 @@ const Container = styled.div`
   position: relative;
   z-index: 1000;
   padding: 80px 20px 0px;
-  max-width: 1300px;
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
 
@@ -73,7 +73,7 @@ const HeadingText = styled.h2`
   background: radial-gradient(
     circle farthest-corner at left center,
     hsl(195, 100%, 90%) -100%,
-    hsl(288, 100%, 90%) 30%
+    hsl(225, 100%, 90%) 30%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -93,7 +93,7 @@ const InfoText = styled.div`
 
   & p {
     line-height: 1.6;
-    color: hsl(288, 100%, 92%);
+    color: hsl(225, 100%, 92%);
     max-width: 120ch;
     font-size: 1.6rem;
 
@@ -122,16 +122,17 @@ const WaveWrapper = styled.div`
   }
 `
 
-const CardList = styled.ul`
-  list-style: none;
+const CardList = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 40px;
   z-index: 200;
   position: relative;
   padding: 0;
   top: 40px;
+  width: 100%;
 
   @media (min-width: 1440px) {
     gap: 60px;

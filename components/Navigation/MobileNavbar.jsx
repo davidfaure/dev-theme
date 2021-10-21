@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FaTimes } from 'react-icons/fa'
-import { FiGithub, FiTwitter, FiInstagram } from 'react-icons/fi'
+import { FaLinkedin, FaLinkedinIn, FaTimes } from 'react-icons/fa'
+import { FiGithub, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi'
 import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion'
 
 import DarkModeToggle from './DarkModeToggle'
@@ -62,19 +62,19 @@ const MobileNavbar = () => {
               <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
                 <path
                   d='M 1 2 C 1 1.448 1.448 1 2 1 L 22 1 C 22.552 1 23 1.448 23 2 L 23 3 C 23 3.552 22.552 4 22 4 L 2 4 C 1.448 4 1 3.552 1 3 Z'
-                  fill='#f9dfff'
+                  fill='#E0E8FF'
                 ></path>
                 <path
                   d='M 1 7 C 1 6.448 1.448 6 2 6 L 17 6 C 17.552 6 18 6.448 18 7 L 18 8 C 18 8.552 17.552 9 17 9 L 2 9 C 1.448 9 1 8.552 1 8 Z'
-                  fill='#f9dfff'
+                  fill='#E0E8FF'
                 ></path>
                 <path
                   d='M 1 12 C 1 11.448 1.448 11 2 11 L 20 11 C 20.552 11 21 11.448 21 12 L 21 13 C 21 13.552 20.552 14 20 14 L 2 14 C 1.448 14 1 13.552 1 13 Z'
-                  fill='#f9dfff'
+                  fill='#E0E8FF'
                 ></path>
                 <path
                   d='M 1 17 C 1 16.448 1.448 16 2 16 L 13 16 C 13.552 16 14 16.448 14 17 L 14 18 C 14 18.552 13.552 19 13 19 L 2 19 C 1.448 19 1 18.552 1 18 Z'
-                  fill='#f9dfff'
+                  fill='#E0E8FF'
                 ></path>
               </svg>
             </div>
@@ -109,13 +109,13 @@ const MobileNavbar = () => {
                     </DropdownItem>
                     <DropdownItem variants={itemVariants}>
                       <LinkStyled
-                        href='https://github.com/nicopellerin'
+                        href='https://github.com/davidfaure'
                         target='_blank'
                         rel='noopener noreferrer'
                         aria-label='Github'
                       >
                         <FiGithub
-                          color='#b464e2'
+                          color='#6599E2'
                           size={24}
                           style={{ marginRight: 15 }}
                         />{' '}
@@ -124,13 +124,13 @@ const MobileNavbar = () => {
                     </DropdownItem>
                     <DropdownItem variants={itemVariants}>
                       <LinkStyled
-                        href='https://twitter.com/nicopellerin_io'
+                        href='https://twitter.com/davidaswell'
                         target='_blank'
                         rel='noopener noreferrer'
                         aria-label='Twitter'
                       >
                         <FiTwitter
-                          color='#b464e2'
+                          color='#6599E2'
                           size={24}
                           style={{ marginRight: 15 }}
                         />{' '}
@@ -139,17 +139,32 @@ const MobileNavbar = () => {
                     </DropdownItem>
                     <DropdownItem variants={itemVariants}>
                       <LinkStyled
-                        href='https://twitter.com/nicopellerin_io'
+                        href='https://www.instagram.com/david.aswell/'
                         target='_blank'
                         rel='noopener noreferrer'
                         aria-label='Instagram'
                       >
                         <FiInstagram
-                          color='#b464e2'
+                          color='#6599E2'
                           size={24}
                           style={{ marginRight: 15 }}
                         />{' '}
                         Instagram
+                      </LinkStyled>
+                    </DropdownItem>
+                    <DropdownItem variants={itemVariants}>
+                      <LinkStyled
+                        href='https://www.linkedin.com/in/david-faure/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        aria-label='LinkedIn'
+                      >
+                        <FaLinkedinIn
+                          color='#6599E2'
+                          size={24}
+                          style={{ marginRight: 15 }}
+                        />{' '}
+                        LinkedIn
                       </LinkStyled>
                     </DropdownItem>
                   </DropdownList>
@@ -164,7 +179,7 @@ const MobileNavbar = () => {
                   <FaTimes
                     style={{
                       fontSize: '2.4rem',
-                      color: '#b464e2',
+                      color: '#6599E2',
                     }}
                   />
                 </CloseWrapper>
@@ -227,12 +242,12 @@ const DropdownWrapper = styled(m.div)`
   position: absolute;
   width: 98%;
   max-width: 700px;
-  background: hsl(288, 100%, 8%);
+  background: hsl(225, 100%, 8%);
   bottom: 00px;
   left: 50%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  border-top: 5px solid hsl(288, 100%, 35%);
+  border-top: 5px solid hsl(225, 100%, 35%);
   z-index: 101;
   padding-bottom: 40px;
 
@@ -279,7 +294,7 @@ const CloseWrapper = styled(m.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid hsl(288, 100%, 35%);
+  border: 2px solid hsl(225, 100%, 35%);
   cursor: pointer;
   z-index: 200;
 
@@ -293,7 +308,7 @@ const CloseWrapper = styled(m.div)`
 `
 
 const DarkModeText = styled.span`
-  color: hsl(288, 100%, 75%);
+  color: hsl(225, 100%, 75%);
   margin-right: auto;
   font-weight: 500;
   font-size: 1.6rem;

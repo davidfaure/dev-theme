@@ -9,7 +9,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root {
-  --headingColor: hsl(288, 100%, 18%);
+  ${
+    '' /* --headingColor: hsl(288, 100%, 18%);
   --textColor: #333;
 
   --backgroundColor: hsl(288, 100%, 95%);
@@ -19,10 +20,26 @@ const GlobalStyles = createGlobalStyle`
   --inputBorder: hsl(288, 100%, 88%);
   --inputText: #333;
 
-  --labelColor: hsl(277, 100%, 26%);
+  --labelColor: hsl(277, 100%, 26%); */
+  }
   }
 
-  .dark {
+  :root {
+  --headingColor: hsl(225, 100%, 18%);
+  --textColor: #333;
+
+  --backgroundColor: hsl(225, 100%, 95%);
+  --projectsBackgroundColor: hsl(225, 100%, 18%);
+
+  --inputBackground: hsla(225, 100%, 96%, 0.7);
+  --inputBorder: hsl(225, 100%, 88%);
+  --inputText: #333;
+
+  --labelColor: hsl(215, 100%, 26%);
+  }
+
+  ${
+    '' /* .dark {
     --headingColor: radial-gradient(
     circle farthest-corner at left center,
     hsl(195, 100%, 90%) -100%,
@@ -39,6 +56,26 @@ const GlobalStyles = createGlobalStyle`
     --inputText: hsl(288, 100%, 92%);
 
     --labelColor: hsl(288, 100%,88%);
+  } */
+  }
+
+  .dark {
+    --headingColor: radial-gradient(
+    circle farthest-corner at left center,
+    hsl(195, 100%, 90%) -100%,
+    hsl(225, 100%, 90%) 50%
+  );
+    --textColor:  hsl(225, 100%, 93%);
+
+    --backgroundColor: hsl(225, 100%, 12%);
+    background: var(--backgroundColor);
+    --projectsBackgroundColor: hsl(225, 100%, 15%);
+
+    --inputBackground: hsl(225,100%,10%);
+    --inputBorder: hsla(225, 100%, 26%, 0.8);
+    --inputText: hsl(225, 100%, 92%);
+
+    --labelColor: hsl(225, 100%,88%);
   }
 
   html {

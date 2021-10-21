@@ -1,9 +1,14 @@
 import React from 'react'
+import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
 import { footer } from '../../data'
+import Notifications from '../Notification'
 
 const Footer = () => {
+  React.useEffect(() => {
+    toast(<Notifications />, { position: toast.POSITION.BOTTOM_RIGHT })
+  })
   return (
     <Wrapper>
       &copy;{new Date().getFullYear()} {footer.text}

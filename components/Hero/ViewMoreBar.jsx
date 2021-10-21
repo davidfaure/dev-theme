@@ -35,7 +35,7 @@ const ViewMoreBar = () => {
           <Container style={{ opacity: opacityVal, y: yVal }}>
             <Link href='#about'>
               <a>
-                <Text>View more</Text>
+                <Text>Continuer</Text>
               </a>
             </Link>
             <Line />
@@ -76,7 +76,7 @@ const Wrapper = styled(m.div)`
   }
 
   @media (min-width: 1800px) {
-    bottom: 55px;
+    bottom: 95px;
   }
 
   @media (min-width: 500px) and (max-width: 820px) and (orientation: landscape) {
