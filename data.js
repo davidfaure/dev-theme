@@ -13,23 +13,44 @@ export const metaData = {
 export const navigation = {
   label: 'Navbar',
   logoText: 'David Faure',
-  menu: [
-    {
-      id: 1,
-      label: 'À propos',
-      link: '#about',
-    },
-    {
-      id: 2,
-      label: 'Projets',
-      link: '#projects',
-    },
-    {
-      id: 3,
-      label: 'Contact',
-      link: '#contact',
-    },
-  ],
+  FR: {
+    menu: [
+      {
+        id: 1,
+        label: 'À propos',
+        link: '#about',
+      },
+      {
+        id: 2,
+        label: 'Projets',
+        link: '#projects',
+      },
+      {
+        id: 3,
+        label: 'Contact',
+        link: '#contact',
+      },
+    ],
+  },
+  EN: {
+    menu: [
+      {
+        id: 1,
+        label: 'About',
+        link: '#about',
+      },
+      {
+        id: 2,
+        label: 'Project',
+        link: '#projects',
+      },
+      {
+        id: 3,
+        label: 'Contact',
+        link: '#contact',
+      },
+    ],
+  },
   socialMediaLinks: [
     {
       id: 1,
@@ -61,18 +82,36 @@ export const navigation = {
 // *** HERO *** --------------
 export const hero = {
   label: 'Hero',
-  headingText:
-    'Bonjour!<br/> Je suis David Faure,<br/> Développeur Web <br/> à Bordeaux.',
-  bottomMoreText: 'Voir plus',
+  FR: {
+    headingText:
+      'Bonjour!<br/> Je suis David Faure,<br/> Développeur Web <br/> à Bordeaux.',
+    bottomMoreText: 'Voir plus',
+    downloadText: 'Télécharger CV',
+    downloadedText: 'Téléchargé',
+  },
+  EN: {
+    headingText:
+      "Hello!<br/> I'm David Faure,<br/> a Web Developer <br/> from Bordeaux.",
+    bottomMoreText: 'View more',
+    downloadText: 'Download CV',
+    downloadedText: 'Downloaded',
+  },
   laptopInnerImage: '/images/inside-laptop-blue.png',
   showLoadingAnimation: true,
 }
 
 // *** ABOUT *** --------------
 export const about = {
-  headerText: 'À propos',
-  profileImage: '/images/about/David_Faure_Pro_Small.jpg',
-  bioText: `<p>Curieux, persévérant et autonome, j'ai eu la chance d'exercer plusieurs métiers qui m'ont permis d'acquérir diverses compétences techniques mais surtout humaines. Après 9 ans d'expérience chez Apple, j'ai choisi en 2020 de revenir à ma première passion :</p><h3>Le Développement Web.</h3><p>Après un diplôme d'Analyste Programmeur obtenu il y a 13 ans, j'ai choisi pour me remettre à niveau la Wild Code School, labellisée Grande Ecole du Numérique, qui utilise une pédagogie inversée et permet de travailler sur 5 projets différents (dont un avec un vrai client) au sein d'équipes différentes en méthodologie agile (SCRUM). C'est une formation intensive de 5 mois où on mise sur l'entraide, la recherche et le développement de l'autonomie de chacun.</p>`,
+  FR: {
+    headerText: 'À propos',
+    profileImage: '/images/about/David_Faure_Pro_Small.jpg',
+    bioText: `<p>Curieux, persévérant et autonome, j'ai eu la chance d'exercer plusieurs métiers qui m'ont permis d'acquérir diverses compétences techniques mais surtout humaines. Après 9 ans d'expérience chez Apple, j'ai choisi en 2020 de revenir à ma première passion :</p><h3>Le Développement Web.</h3><p>Après un diplôme d'Analyste Programmeur obtenu il y a 13 ans, j'ai choisi pour me remettre à niveau la Wild Code School, labellisée Grande Ecole du Numérique, qui utilise une pédagogie inversée et permet de travailler sur 3 projets différents (dont un avec un vrai client) au sein d'équipes différentes en méthodologie agile (SCRUM). C'est une formation intensive de 5 mois où on mise sur l'entraide, la recherche et le développement de l'autonomie de chacun.</p>`,
+  },
+  EN: {
+    headerText: 'About',
+    profileImage: '/images/about/David_Faure_Pro_Small.jpg',
+    bioText: `<p> Curious, persevering and autonomous, I had the chance to exercise several trades which allowed me to acquire various technical skills and especially human’s one. After 9 years of experience at Apple, I chose in 2020 to return to my first passion: </p> <h3> Web Development. </h3> <p> After a Programmer Analyst diploma obtained 13 years ago, I chose to level up my technical skills the Wild Code School, which uses a reverse pedagogy and allows to work on 3 different projects (including one with a real client) within different teams in agile methodology (SCRUM). It is an intensive 5-month training course where we focus on support, research and the development of individual autonomy. </p>`,
+  },
 }
 
 export const techImages = [
@@ -152,8 +191,14 @@ export const projects = {
 
 // *** CONTACT *** --------------
 export const contact = {
-  headingText: 'Me Contacter',
-  infoText: `<p>Pour toutes questions, projets ou tout simplement pour me dire bonjour. N'hésitez pas à me contacter en remplissant le formulaire ci-dessous. Je vous répondrai dans les meilleurs délais.</p>`,
+  FR: {
+    headingText: 'Me Contacter',
+    infoText: `<p>Pour toutes questions, projets ou tout simplement pour me dire bonjour. N'hésitez pas à me contacter en remplissant le formulaire ci-dessous. Je vous répondrai dans les meilleurs délais.</p>`,
+  },
+  EN: {
+    headingText: 'Contact',
+    infoText: `<p>For any questions, projects or just to say hello. Do not hesitate to contact me by filling out the form below. I will get back to you as soon as possible.</p>`,
+  },
 }
 
 // *** FOOTER *** --------------
