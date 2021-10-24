@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useContext } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import {
@@ -8,12 +8,15 @@ import {
   useTransform,
   useViewportScroll,
 } from 'framer-motion'
+import { LanguageContext } from '../../context/LanguageContext'
+import { hero } from '../../data'
 
 const ViewMoreBar = () => {
   const { scrollY } = useViewportScroll()
 
   const opacityVal = useTransform(scrollY, [0, 200, 400], [1, 0.5, 0])
   const yVal = useTransform(scrollY, [0, 200, 400], [0, 30, 75])
+  const { lang } = useContext(LanguageContext)
 
   return (
     <LazyMotion features={domAnimation}>
@@ -35,7 +38,7 @@ const ViewMoreBar = () => {
           <Container style={{ opacity: opacityVal, y: yVal }}>
             <Link href='#about'>
               <a>
-                <Text>Continuer</Text>
+                <Text>{hero[lang].bottomMoreText}</Text>
               </a>
             </Link>
             <Line />

@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { FaLinkedin, FaLinkedinIn, FaTimes } from 'react-icons/fa'
 import { FiGithub, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi'
 import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion'
 
 import DarkModeToggle from './DarkModeToggle'
+import { LanguageContext } from '../../context/LanguageContext'
 
 const listVariants = {
   hidden: {
@@ -51,7 +52,7 @@ const itemVariants = {
 
 const MobileNavbar = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false)
-
+  const { lang, updateLanguage } = useContext(LanguageContext)
   return (
     <>
       <LazyMotion features={domAnimation}>
@@ -99,12 +100,44 @@ const MobileNavbar = () => {
                     <DropdownItem
                       variants={itemVariants}
                       style={{
+                        paddingBottom: '2rem',
+                        marginBottom: '2rem',
+                      }}
+                    >
+                      <DarkModeText>
+                        {lang === 'FR'
+                          ? 'Changer de langue'
+                          : 'Change language'}
+                      </DarkModeText>
+                      <ChooseLanguage>
+                        <LangueChangeText
+                          title={'FR'}
+                          lang={lang}
+                          onClick={() => updateLanguage('FR')}
+                        >
+                          FR
+                        </LangueChangeText>
+                        <DarkModeText>|</DarkModeText>
+                        <LangueChangeText
+                          title={'EN'}
+                          lang={lang}
+                          onClick={() => updateLanguage('EN')}
+                        >
+                          EN
+                        </LangueChangeText>
+                      </ChooseLanguage>
+                    </DropdownItem>
+                    <DropdownItem
+                      variants={itemVariants}
+                      style={{
                         borderBottom: '1px solid rgba(221,94,152, 0.2)',
                         paddingBottom: '2rem',
                         marginBottom: '2rem',
                       }}
                     >
-                      <DarkModeText>Change theme</DarkModeText>
+                      <DarkModeText>
+                        {lang === 'FR' ? 'Changer de thème' : 'Change theme'}
+                      </DarkModeText>
                       <DarkModeToggle />
                     </DropdownItem>
                     <DropdownItem variants={itemVariants}>
@@ -212,6 +245,11 @@ const Wrapper = styled.div`
   }
 `
 
+const ChooseLanguage = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`
+
 const Container = styled.div`
   margin: 0 auto;
   padding: 30px 20px;
@@ -313,4 +351,17 @@ const DarkModeText = styled.span`
   font-weight: 500;
   font-size: 1.6rem;
   letter-spacing: 1.1px;
+`
+
+const LangueChangeText = styled.span`
+  color: hsl(225, 100%, 75%);
+  color: ${(props) =>
+    props.title === props.lang ? 'hsl(225, 100%, 97%)' : 'hsl(225, 100%, 75%)'};
+  }
+  margin-right: auto;
+  margin: 0px 6px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 1.1px;
+  transition: color 0.5s;
 `
