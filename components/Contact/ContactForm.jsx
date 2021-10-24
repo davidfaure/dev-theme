@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import styled from 'styled-components'
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion'
 import { FiSend, FiAlertTriangle } from 'react-icons/fi'
 import axios from 'axios'
 
 import Confetti from '../Confetti'
+import { LanguageContext } from '../../context/LanguageContext'
 
 const ContactForm = () => {
   const [name, setName] = useState('')
@@ -20,6 +21,7 @@ const ContactForm = () => {
 
   const lottieRef = useRef()
   const animRef = useRef()
+  const { lang } = useContext(LanguageContext)
 
   useEffect(() => {
     if (isSent) {
@@ -44,7 +46,12 @@ const ContactForm = () => {
     }
 
     if (name === '' || email === '' || subject === '' || message === '') {
-      setErrors('Merci de remplir tous les champs')
+      if (lang === 'FR') {
+        setErrors('Merci de remplir tous les champs')
+      }
+      if (lang === 'EN') {
+        setErrors('Please fill out all fields')
+      }
       return
     }
 
@@ -65,7 +72,12 @@ const ContactForm = () => {
       setSubject('')
       setMessage('')
     } catch (err) {
-      setErrors('Erreur inattendue. Veuillez réessayer.')
+      if (lang === 'FR') {
+        setErrors('Erreur inattendue. Veuillez réessayer.')
+      }
+      if (lang === 'EN') {
+        setErrors('An error occurred. Please try again.')
+      }
     } finally {
       setIsSending(false)
     }
@@ -91,7 +103,9 @@ const ContactForm = () => {
                   exit={{ opacity: 0 }}
                   transition={{ type: 'spring', damping: 12, delay: 0.1 }}
                 >
-                  {'Ton message a bien été envoyé'}
+                  {lang === 'FR'
+                    ? 'Ton message a bien été envoyé'
+                    : 'Your message was successfully sent'}
                 </SuccessTitle>
                 <Confetti />
               </SuccessMsgWrapper>
@@ -99,7 +113,9 @@ const ContactForm = () => {
               <>
                 <InputRow>
                   <InputFieldWrapper>
-                    <Label htmlFor='name'>Nom</Label>
+                    <Label htmlFor='name'>
+                      {lang === 'FR' ? 'Nom' : 'Name'}{' '}
+                    </Label>
                     <InputField
                       id='name'
                       name='name'
@@ -120,7 +136,9 @@ const ContactForm = () => {
                 </InputRow>
                 <InputRow style={{ gridTemplateColumns: '1fr' }}>
                   <InputFieldWrapper>
-                    <Label htmlFor='subject'>Sujet</Label>
+                    <Label htmlFor='subject'>
+                      {lang === 'FR' ? 'Sujet' : 'Subject'}
+                    </Label>
                     <InputField
                       id='subject'
                       name='subject'
@@ -141,10 +159,11 @@ const ContactForm = () => {
                 </InputFieldWrapper>
                 <Button whileHover={{ y: -1 }} whileTap={{ y: 1 }}>
                   {isSending ? (
-                    <>Envoi...</>
+                    <>{lang === 'FR' ? 'Envoi...' : 'Sending...'}</>
                   ) : (
                     <>
-                      Envoyer <FiSend style={{ marginLeft: 5 }} />
+                      {lang === 'FR' ? 'Envoyer' : 'Send'}{' '}
+                      <FiSend style={{ marginLeft: 5 }} />
                     </>
                   )}
                 </Button>

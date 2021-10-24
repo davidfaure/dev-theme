@@ -11,21 +11,23 @@ import Wave2 from '../Waves/Wave2'
 import { ThemeContext } from '../../context/ThemeContext'
 
 import { about } from '../../data'
+import { LanguageContext } from '../../context/LanguageContext'
 
 const About = () => {
   const { darkMode } = useContext(ThemeContext)
+  const { lang } = useContext(LanguageContext)
   return (
     <Wrapper id='about'>
       <LazyMotion features={domAnimation}>
         <Container>
           <HeadingContainer>
-            <HeadingText tabIndex={0}>{about.headerText}</HeadingText>
+            <HeadingText tabIndex={0}>{about[lang].headerText}</HeadingText>
           </HeadingContainer>
           <Content>
             <Parallax offset={10} offsetInitial={26}>
               <ProfileImageWrapper darkMode={darkMode}>
                 <Image
-                  src={about.profileImage}
+                  src={about[lang].profileImage}
                   alt='Profile'
                   layout='fill'
                   placeholder='blur'
@@ -46,7 +48,9 @@ const About = () => {
               </ProfileImageWrapper>
             </Parallax>
             <div>
-              <BioText dangerouslySetInnerHTML={{ __html: about.bioText }} />
+              <BioText
+                dangerouslySetInnerHTML={{ __html: about[lang].bioText }}
+              />
               <Parallax offset={-10} offsetInitial={-10}>
                 <TechBar />
               </Parallax>

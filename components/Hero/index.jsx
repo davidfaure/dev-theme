@@ -19,6 +19,7 @@ import { ThemeContext } from '../../context/ThemeContext'
 import { hero } from '../../data'
 import { Canvas } from '@react-three/fiber'
 import { FaCheck, FaDownload, FaSpinner } from 'react-icons/fa'
+import { LanguageContext } from '../../context/LanguageContext'
 
 const Hero = () => {
   const isDesktop = useMedia({
@@ -29,6 +30,7 @@ const Hero = () => {
   const [isDownloaded, setIsDownloaded] = useState(false)
 
   const { darkMode } = useContext(ThemeContext)
+  const { lang } = useContext(LanguageContext)
 
   const [hasLoaded, setHasLoaded] = useState(false)
 
@@ -63,7 +65,7 @@ const Hero = () => {
                 bounce: 0.9,
                 delay: 0.15,
               }}
-              dangerouslySetInnerHTML={{ __html: hero.headingText }}
+              dangerouslySetInnerHTML={{ __html: hero[lang].headingText }}
             />
             {!isDownloaded ? (
               <Button
@@ -78,7 +80,7 @@ const Hero = () => {
                   target='_blank'
                   rel='noreferrer'
                 >
-                  Télécharger CV{' '}
+                  {hero[lang].downloadText}{' '}
                   {!isDownloading ? (
                     <FaDownload style={{ marginLeft: 10 }} />
                   ) : (
@@ -88,7 +90,8 @@ const Hero = () => {
               </Button>
             ) : (
               <Button>
-                Téléchargé <FaCheck style={{ marginLeft: 10 }} />
+                {hero[lang].downloadedText}{' '}
+                <FaCheck style={{ marginLeft: 10 }} />
               </Button>
             )}
           </Parallax>

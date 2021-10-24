@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { AnimateSharedLayout, motion } from 'framer-motion'
+import { AnimateSharedLayout, motion, m } from 'framer-motion'
 import Link from 'next/link'
 
 import DarkModeToggle from './DarkModeToggle'
 
 import { navigation } from '../../data'
+import { LanguageContext } from '../../context/LanguageContext'
 
 const Navbar = () => {
   const [idx, setIdx] = useState(null)
+  const { lang, updateLanguage } = React.useContext(LanguageContext)
 
   return (
     <Wrapper>
@@ -17,7 +19,7 @@ const Navbar = () => {
         <nav>
           <Menu onMouseLeave={() => setIdx(null)}>
             <AnimateSharedLayout>
-              {navigation.menu.map((item, index) => (
+              {navigation[lang].menu.map((item, index) => (
                 <MenuItem key={item.id} onMouseOver={() => setIdx(index)}>
                   <Link href={item.link}>
                     <a tabIndex={0}>
@@ -61,6 +63,23 @@ const Navbar = () => {
           </Socials>
           <DarkModeToggle />
         </RightWrapper>
+        <ChooseLanguage>
+          <LanguageText
+            title={'FR'}
+            lang={lang}
+            onClick={() => updateLanguage('FR')}
+          >
+            FR
+          </LanguageText>
+          <p>|</p>
+          <LanguageText
+            title={'EN'}
+            lang={lang}
+            onClick={() => updateLanguage('EN')}
+          >
+            EN
+          </LanguageText>
+        </ChooseLanguage>
       </Container>
     </Wrapper>
   )
@@ -69,6 +88,7 @@ const Navbar = () => {
 export default Navbar
 
 // Styles
+
 const Wrapper = styled.div`
   display: none;
 
@@ -121,7 +141,6 @@ const Menu = styled.ul`
 const MenuItem = styled.li`
   font-size: 1.6rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.03);
   border-radius: 5px;
   position: relative;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
@@ -139,6 +158,29 @@ const MenuItem = styled.li`
 const RightWrapper = styled.div`
   display: flex;
   align-items: center;
+`
+
+const ChooseLanguage = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  & p {
+    color: hsl(225, 100%, 97%);
+    cursor: pointer;
+    margin: 5px;
+  }
+`
+
+const LanguageText = styled(m.p)`
+  color: hsl(225, 100%, 97%);
+  font-weight: 600;
+  cursor: pointer;
+  margin: 5px;
+  border-bottom: ${(props) =>
+    props.title === props.lang
+      ? '2px solid hsl(225, 100%, 97%)'
+      : '2px solid transparent'};
+  }
+  transition: border 0.5s;
 `
 
 const Socials = styled.ul`

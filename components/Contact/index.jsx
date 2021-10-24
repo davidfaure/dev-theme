@@ -4,15 +4,19 @@ import styled from 'styled-components'
 import ContactForm from './ContactForm'
 
 import { contact } from '../../data'
+import { LanguageContext } from '../../context/LanguageContext'
 
 const Contact = () => {
+  const { lang } = React.useContext(LanguageContext)
   return (
     <Wrapper>
       <Container id='contact'>
         <HeadingContainer>
-          <HeadingText>{contact.headingText}</HeadingText>
+          <HeadingText>{contact[lang].headingText}</HeadingText>
         </HeadingContainer>
-        <InfoText dangerouslySetInnerHTML={{ __html: contact.infoText }} />
+        <InfoText
+          dangerouslySetInnerHTML={{ __html: contact[lang].infoText }}
+        />
         <ContactForm />
       </Container>
     </Wrapper>
