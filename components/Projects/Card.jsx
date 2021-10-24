@@ -14,6 +14,7 @@ import {
 } from 'framer-motion'
 
 import { ThemeContext } from '../../context/ThemeContext'
+import { LanguageContext } from '../../context/LanguageContext'
 
 const Card = ({ project, index, totalProjects }) => {
   const isDesktop = useMedia({
@@ -21,6 +22,7 @@ const Card = ({ project, index, totalProjects }) => {
   })
 
   const { darkMode } = useContext(ThemeContext)
+  const { lang } = useContext(LanguageContext)
   const [selectedId, setSelectedId] = React.useState(null)
 
   return (
@@ -69,7 +71,7 @@ const Card = ({ project, index, totalProjects }) => {
                 onMouseLeave={() => setSelectedId(null)}
                 darkMode={darkMode}
               >
-                Stack Technique
+                {lang === 'FR' ? 'Stack Technique' : 'Tech Stack'}
               </StackButton>
             </Heading>
             <Description darkMode={darkMode}>{project.description}</Description>
@@ -88,7 +90,7 @@ const Card = ({ project, index, totalProjects }) => {
                       color: 'hsl(225, 100%, 94%)',
                     }}
                   />
-                  Démo
+                  {lang === 'FR' ? 'Démo' : 'Demo'}
                 </a>
               </Button>
               {project.githubLink && (
@@ -106,7 +108,7 @@ const Card = ({ project, index, totalProjects }) => {
                         color: 'hsl(225, 100%, 94%)',
                       }}
                     />
-                    Code source
+                    {lang === 'FR' ? 'Code Source' : 'Source Code'}
                   </a>
                 </ButtonCode>
               )}

@@ -172,12 +172,13 @@ const ChooseLanguage = styled.div`
 
 const LanguageText = styled(m.p)`
   color: hsl(225, 100%, 97%);
+  font-weight: 600;
   cursor: pointer;
   margin: 5px;
   border-bottom: ${(props) =>
     props.title === props.lang
-      ? '1px solid hsl(225, 100%, 97%)'
-      : '1px solid transparent'};
+      ? '2px solid hsl(225, 100%, 97%)'
+      : '2px solid transparent'};
   }
   transition: border 0.5s;
 `

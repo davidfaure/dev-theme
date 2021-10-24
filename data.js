@@ -126,67 +126,132 @@ export const techImages = [
 
 // *** PROJECTS *** --------------
 export const projects = {
-  headerText: 'Projets',
-  infoText: `<p>Les projets ci-dessous ont été réalisés durant ma formation mais également durant mon temps libre afin de me perfectionner sur des nouvelles technologies.</p>`,
-  projectsData: [
-    {
-      id: 1,
-      image: '/images/projects/emptyYourFridge.png',
-      title: '🍓 Empty Your Fridge',
-      stack: [
-        { tech: 'react', logo: '/images/tech/react.png' },
-        { tech: 'javascript', logo: '/images/tech/javascript.png' },
-        { tech: 'nodejs', logo: '/images/tech/node.png' },
-        { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
-      ],
-      description:
-        "Application de recherche de recette avec différentes options, notamment par mots-clés et ingrédients. Une fonctionnalité de recherche avancée est également à votre disposition ainsi qu'un formulaire de contact.",
-      link: 'https://in-my-fridge.netlify.app/',
-      githubLink: '',
-    },
-    {
-      id: 2,
-      image: '/images/projects/weather-app.png',
-      title: '🌤 Weather App',
-      stack: [
-        { tech: 'react', logo: '/images/tech/react.png' },
-        { tech: 'javascript', logo: '/images/tech/javascript.png' },
-        { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
-      ],
-      description:
-        "Weather app permet de trouver la météo d'une ville par simple recherche. J'ai réalisé cette application pour améliorer mes compétences techniques et en utilisation d'API (OpenWeather).",
-      link: 'https://reactjs-simple-weather-app.netlify.app/',
-      githubLink: 'https://github.com/davidfaure/weather-app',
-    },
-    {
-      id: 3,
-      image: '/images/projects/mazeApp.png',
-      title: '🧩 Maze game',
-      stack: [
-        { tech: 'react', logo: '/images/tech/react.png' },
-        { tech: 'redux', logo: '/images/tech/redux.png' },
-        { tech: 'typescript', logo: '/images/tech/typescript.png' },
-      ],
-      description:
-        'Maze game est un jeu vous permettant de générer un labyrinthe de la taille de votre choix (10x10 mini) et de le parcourir afin de trouver la sortie avec le héros de votre choix. Le package Amazer a été utilisé pour ce projet et la version 2 est en cours de développement.',
-      link: 'https://david-maze.netlify.app/',
-      githubLink: '',
-    },
-    {
-      id: 4,
-      image: '/images/projects/contactForm.png',
-      title: '📤 Contact',
-      stack: [
-        { tech: 'react', logo: '/images/tech/react.png' },
-        { tech: 'javascript', logo: '/images/tech/javascript.png' },
-        { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
-      ],
-      description:
-        'Un composant React réutilisable qui a été rélalisé lors du projet Empty Your Fridge. il est écrit en class component et contient et gestions des erreurs de saisies.',
-      link: 'https://david-form-component.netlify.app/',
-      githubLink: 'https://github.com/davidfaure/form-component',
-    },
-  ],
+  FR: {
+    headerText: 'Projets',
+    infoText: `<p>Les projets ci-dessous ont été réalisés durant ma formation mais également durant mon temps libre afin de me perfectionner sur des nouvelles technologies.</p>`,
+    projectsData: [
+      {
+        id: 1,
+        image: '/images/projects/emptyYourFridge.png',
+        title: '🍓 Empty Your Fridge',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'javascript', logo: '/images/tech/javascript.png' },
+          { tech: 'nodejs', logo: '/images/tech/node.png' },
+          { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
+        ],
+        description:
+          "Application de recherche de recette avec différentes options, notamment par mots-clés et ingrédients. Une fonctionnalité de recherche avancée est également à votre disposition ainsi qu'un formulaire de contact.",
+        link: 'https://in-my-fridge.netlify.app/',
+        githubLink: '',
+      },
+      {
+        id: 2,
+        image: '/images/projects/weather-app.png',
+        title: '🌤 Weather App',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'javascript', logo: '/images/tech/javascript.png' },
+          { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
+        ],
+        description:
+          "Weather app permet de trouver la météo d'une ville par simple recherche. J'ai réalisé cette application pour améliorer mes compétences techniques et en utilisation d'API (OpenWeather).",
+        link: 'https://reactjs-simple-weather-app.netlify.app/',
+        githubLink: 'https://github.com/davidfaure/weather-app',
+      },
+      {
+        id: 3,
+        image: '/images/projects/mazeApp.png',
+        title: '🧩 Maze game',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'redux', logo: '/images/tech/redux.png' },
+          { tech: 'typescript', logo: '/images/tech/typescript.png' },
+        ],
+        description:
+          'Maze game est un jeu vous permettant de générer un labyrinthe de la taille de votre choix (10x10 mini) et de le parcourir afin de trouver la sortie avec le héros de votre choix. Le package Amazer a été utilisé pour ce projet et la version 2 est en cours de développement.',
+        link: 'https://david-maze.netlify.app/',
+        githubLink: '',
+      },
+      {
+        id: 4,
+        image: '/images/projects/contactForm.png',
+        title: '📤 Contact',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'javascript', logo: '/images/tech/javascript.png' },
+          { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
+        ],
+        description:
+          'Un composant React réutilisable qui a été réalisé lors du projet Empty Your Fridge. il est écrit en class component et contient une gestion des erreurs de saisies.',
+        link: 'https://david-form-component.netlify.app/',
+        githubLink: 'https://github.com/davidfaure/form-component',
+      },
+    ],
+  },
+  EN: {
+    headerText: 'Projects',
+    infoText: `<p>The projects below were carried out during my training but also during my free time in order to improve myself on new technologies.</p>`,
+    projectsData: [
+      {
+        id: 1,
+        image: '/images/projects/emptyYourFridge.png',
+        title: '🍓 Empty Your Fridge',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'javascript', logo: '/images/tech/javascript.png' },
+          { tech: 'nodejs', logo: '/images/tech/node.png' },
+          { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
+        ],
+        description:
+          'Recipe search application with different options, including keywords and ingredients. An advanced search functionality is also at your disposal as well as a contact form.',
+        link: 'https://in-my-fridge.netlify.app/',
+        githubLink: '',
+      },
+      {
+        id: 2,
+        image: '/images/projects/weather-app.png',
+        title: '🌤 Weather App',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'javascript', logo: '/images/tech/javascript.png' },
+          { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
+        ],
+        description:
+          'Weather app allows you to find the weather of a city by simple search. I made this application to improve my technical skills and API use (OpenWeather).',
+        link: 'https://reactjs-simple-weather-app.netlify.app/',
+        githubLink: 'https://github.com/davidfaure/weather-app',
+      },
+      {
+        id: 3,
+        image: '/images/projects/mazeApp.png',
+        title: '🧩 Maze game',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'redux', logo: '/images/tech/redux.png' },
+          { tech: 'typescript', logo: '/images/tech/typescript.png' },
+        ],
+        description:
+          'Maze is a game allowing you to generate a labyrinth of the size of your choice (10x10 mini) and to browse it in order to find the exit with the hero of your choice. The Amazer package was used for this project and version 2 is under development.',
+        link: 'https://david-maze.netlify.app/',
+        githubLink: '',
+      },
+      {
+        id: 4,
+        image: '/images/projects/contactForm.png',
+        title: '📤 Contact',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'javascript', logo: '/images/tech/javascript.png' },
+          { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
+        ],
+        description:
+          'A reusable React component that was made during the Empty Your Fridge project. it is written in class component and contains input error management.',
+        link: 'https://david-form-component.netlify.app/',
+        githubLink: 'https://github.com/davidfaure/form-component',
+      },
+    ],
+  },
 }
 
 // *** CONTACT *** --------------

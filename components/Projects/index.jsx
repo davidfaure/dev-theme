@@ -9,8 +9,11 @@ import Wave from '../Waves/Wave'
 import { projects } from '../../data'
 
 import bg from '../../public/images/projects-background.png'
+import { LanguageContext } from '../../context/LanguageContext'
 
 const Projects = () => {
+  const { lang } = React.useContext(LanguageContext)
+
   return (
     <Wrapper>
       <BackgroundImage
@@ -21,16 +24,20 @@ const Projects = () => {
         alt='Background'
       />
       <Container id='projects'>
-        <HeadingText tabIndex={0}>{projects.headerText} &mdash;</HeadingText>
-        <InfoText dangerouslySetInnerHTML={{ __html: projects.infoText }} />
+        <HeadingText tabIndex={0}>
+          {projects[lang].headerText} &mdash;
+        </HeadingText>
+        <InfoText
+          dangerouslySetInnerHTML={{ __html: projects[lang].infoText }}
+        />
         <Parallax offset={10} offsetInitial={30}>
-          <CardList totalProjects={projects.projectsData.length}>
-            {projects.projectsData.map((project, index) => (
+          <CardList totalProjects={projects[lang].projectsData.length}>
+            {projects[lang].projectsData.map((project, index) => (
               <Card
                 key={project.id}
                 project={project}
                 index={index}
-                totalProjects={projects.projectsData.length}
+                totalProjects={projects[lang].projectsData.length}
               />
             ))}
           </CardList>
