@@ -74,7 +74,11 @@ const Hero = () => {
                 onClick={() => setIsDownloading(true)}
               >
                 <a
-                  href='/CV/David_Faure_Developpeur_Full_Stack.pdf'
+                  href={
+                    lang === 'FR'
+                      ? '/CV/David_Faure_Developpeur_Full_Stack.pdf'
+                      : '/CV/David_Faure_Developpeur_Full_Stack_EN.pdf'
+                  }
                   aria-label='CV'
                   download
                   target='_blank'
