@@ -132,6 +132,21 @@ export const projects = {
     projectsData: [
       {
         id: 1,
+        image: '/images/projects/chat-voice-app.png',
+        title: '📞 Chat Voice App',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'javascript', logo: '/images/tech/javascript.png' },
+          { tech: 'socket.io', logo: '/images/tech/socketio.png' },
+          { tech: 'node.js', logo: '/images/tech/node.png' },
+        ],
+        description:
+          "Une application d'appel en visio avec chat inclus, vous pouvez passer des appels, couper votre micro et/ou caméra et chatter !",
+        link: 'https://chat-voice-app.herokuapp.com/',
+        githubLink: 'https://github.com/davidfaure/rogerVoice',
+      },
+      {
+        id: 2,
         image: '/images/projects/emptyYourFridge.png',
         title: '🍓 Empty Your Fridge',
         stack: [
@@ -146,7 +161,7 @@ export const projects = {
         githubLink: '',
       },
       {
-        id: 2,
+        id: 3,
         image: '/images/projects/weather-app.png',
         title: '🌤 Weather App',
         stack: [
@@ -160,7 +175,7 @@ export const projects = {
         githubLink: 'https://github.com/davidfaure/weather-app',
       },
       {
-        id: 3,
+        id: 4,
         image: '/images/projects/mazeApp.png',
         title: '🧩 Maze game',
         stack: [
@@ -173,20 +188,6 @@ export const projects = {
         link: 'https://david-maze.netlify.app/',
         githubLink: '',
       },
-      {
-        id: 4,
-        image: '/images/projects/contactForm.png',
-        title: '📤 Contact',
-        stack: [
-          { tech: 'react', logo: '/images/tech/react.png' },
-          { tech: 'javascript', logo: '/images/tech/javascript.png' },
-          { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
-        ],
-        description:
-          'Un composant React réutilisable qui a été réalisé lors du projet Empty Your Fridge. il est écrit en class component et contient une gestion des erreurs de saisies.',
-        link: 'https://david-form-component.netlify.app/',
-        githubLink: 'https://github.com/davidfaure/form-component',
-      },
     ],
   },
   EN: {
@@ -195,6 +196,21 @@ export const projects = {
     projectsData: [
       {
         id: 1,
+        image: '/images/projects/chat-voice-app.png',
+        title: '📞 Chat Voice App',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'javascript', logo: '/images/tech/javascript.png' },
+          { tech: 'socket.io', logo: '/images/tech/socketio.png' },
+          { tech: 'node.js', logo: '/images/tech/node.png' },
+        ],
+        description:
+          'A videoconference app with chat included, you can make a call, shut down your camera and/or mic and chat !',
+        link: 'https://chat-voice-app.herokuapp.com/',
+        githubLink: 'https://github.com/davidfaure/rogerVoice',
+      },
+      {
+        id: 2,
         image: '/images/projects/emptyYourFridge.png',
         title: '🍓 Empty Your Fridge',
         stack: [
@@ -209,7 +225,7 @@ export const projects = {
         githubLink: '',
       },
       {
-        id: 2,
+        id: 3,
         image: '/images/projects/weather-app.png',
         title: '🌤 Weather App',
         stack: [
@@ -223,7 +239,7 @@ export const projects = {
         githubLink: 'https://github.com/davidfaure/weather-app',
       },
       {
-        id: 3,
+        id: 4,
         image: '/images/projects/mazeApp.png',
         title: '🧩 Maze game',
         stack: [
@@ -235,20 +251,6 @@ export const projects = {
           'Maze is a game allowing you to generate a labyrinth of the size of your choice (10x10 mini) and to browse it in order to find the exit with the hero of your choice. The Amazer package was used for this project and version 2 is under development.',
         link: 'https://david-maze.netlify.app/',
         githubLink: '',
-      },
-      {
-        id: 4,
-        image: '/images/projects/contactForm.png',
-        title: '📤 Contact',
-        stack: [
-          { tech: 'react', logo: '/images/tech/react.png' },
-          { tech: 'javascript', logo: '/images/tech/javascript.png' },
-          { tech: 'materialUI', logo: '/images/tech/material-ui.png' },
-        ],
-        description:
-          'A reusable React component that was made during the Empty Your Fridge project. it is written in class component and contains input error management.',
-        link: 'https://david-form-component.netlify.app/',
-        githubLink: 'https://github.com/davidfaure/form-component',
       },
     ],
   },
