@@ -132,6 +132,20 @@ export const projects = {
     projectsData: [
       {
         id: 1,
+        image: '/images/projects/mazeApp.png',
+        title: '🧩 Maze game V2',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'redux', logo: '/images/tech/redux.png' },
+          { tech: 'typescript', logo: '/images/tech/typescript.png' },
+        ],
+        description:
+          'Maze game V2 est enfin là! Le labyrinthe est maintenant de 26x26, 4 modes de difficultés (facile, normal, difficile, expert), des crystaux à ramasser, des vies à conserver, des ennemis à éviter. Arriverez-vous à faire un meilleur score que moi ?',
+        link: 'https://aswell-amazegame.netlify.app/',
+        githubLink: '',
+      },
+      {
+        id: 2,
         image: '/images/projects/chat-voice-app.png',
         title: '📞 Chat Voice App',
         stack: [
@@ -146,7 +160,7 @@ export const projects = {
         githubLink: 'https://github.com/davidfaure/rogerVoice',
       },
       {
-        id: 2,
+        id: 3,
         image: '/images/projects/emptyYourFridge.png',
         title: '🍓 Empty Your Fridge',
         stack: [
@@ -161,7 +175,7 @@ export const projects = {
         githubLink: '',
       },
       {
-        id: 3,
+        id: 4,
         image: '/images/projects/weather-app.png',
         title: '🌤 Weather App',
         stack: [
@@ -174,20 +188,6 @@ export const projects = {
         link: 'https://reactjs-simple-weather-app.netlify.app/',
         githubLink: 'https://github.com/davidfaure/weather-app',
       },
-      {
-        id: 4,
-        image: '/images/projects/mazeApp.png',
-        title: '🧩 Maze game',
-        stack: [
-          { tech: 'react', logo: '/images/tech/react.png' },
-          { tech: 'redux', logo: '/images/tech/redux.png' },
-          { tech: 'typescript', logo: '/images/tech/typescript.png' },
-        ],
-        description:
-          'Maze game est un jeu vous permettant de générer un labyrinthe de la taille de votre choix (10x10 mini) et de le parcourir afin de trouver la sortie avec le héros de votre choix. Le package Amazer a été utilisé pour ce projet et la version 2 est en cours de développement.',
-        link: 'https://david-maze.netlify.app/',
-        githubLink: '',
-      },
     ],
   },
   EN: {
@@ -196,6 +196,20 @@ export const projects = {
     projectsData: [
       {
         id: 1,
+        image: '/images/projects/mazeApp.png',
+        title: '🧩 Maze game V2',
+        stack: [
+          { tech: 'react', logo: '/images/tech/react.png' },
+          { tech: 'redux', logo: '/images/tech/redux.png' },
+          { tech: 'typescript', logo: '/images/tech/typescript.png' },
+        ],
+        description:
+          'Maze game V2 is finally here! The labyrinth is now 26x26, 4 difficulty settings (easy, normal, hard, expert), crystals to collect, lives to keep, enemies to avoid. Will you be able to beat my score?',
+        link: 'https://aswell-amazegame.netlify.app/',
+        githubLink: '',
+      },
+      {
+        id: 2,
         image: '/images/projects/chat-voice-app.png',
         title: '📞 Chat Voice App',
         stack: [
@@ -210,7 +224,7 @@ export const projects = {
         githubLink: 'https://github.com/davidfaure/rogerVoice',
       },
       {
-        id: 2,
+        id: 3,
         image: '/images/projects/emptyYourFridge.png',
         title: '🍓 Empty Your Fridge',
         stack: [
@@ -225,7 +239,7 @@ export const projects = {
         githubLink: '',
       },
       {
-        id: 3,
+        id: 4,
         image: '/images/projects/weather-app.png',
         title: '🌤 Weather App',
         stack: [
@@ -237,20 +251,6 @@ export const projects = {
           'Weather app allows you to find the weather of a city by simple search. I made this application to improve my technical skills and API use (OpenWeather).',
         link: 'https://reactjs-simple-weather-app.netlify.app/',
         githubLink: 'https://github.com/davidfaure/weather-app',
-      },
-      {
-        id: 4,
-        image: '/images/projects/mazeApp.png',
-        title: '🧩 Maze game',
-        stack: [
-          { tech: 'react', logo: '/images/tech/react.png' },
-          { tech: 'redux', logo: '/images/tech/redux.png' },
-          { tech: 'typescript', logo: '/images/tech/typescript.png' },
-        ],
-        description:
-          'Maze is a game allowing you to generate a labyrinth of the size of your choice (10x10 mini) and to browse it in order to find the exit with the hero of your choice. The Amazer package was used for this project and version 2 is under development.',
-        link: 'https://david-maze.netlify.app/',
-        githubLink: '',
       },
     ],
   },
