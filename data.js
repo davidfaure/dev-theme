@@ -270,5 +270,5 @@ export const contact = {
 
 // *** FOOTER *** --------------
 export const footer = {
-  text: 'David Faure',
+  text: 'all right reserved',
 }
