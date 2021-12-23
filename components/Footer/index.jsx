@@ -44,6 +44,7 @@ export default Footer
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   align-items: center;
   padding: 0px 40px;
 `
@@ -58,6 +59,10 @@ const Copyright = styled.footer`
   background: var(--backgroundColor);
   z-index: 10;
   position: relative;
+
+  @media (max-width: 600px) {
+    padding: 20px 0;
+  }
 `
 
 const Socials = styled.ul`
@@ -68,6 +73,9 @@ const Socials = styled.ul`
 
   & li:not(:last-child) {
     margin-right: 24px;
+  }
+  @media (max-width: 600px) {
+    padding: 10px 0;
   }
 `
 

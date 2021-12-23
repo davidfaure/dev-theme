@@ -186,7 +186,7 @@ const Button = styled(m.button)`
   justify-content: space-around;
 
   @media (max-width: 500px) {
-    width: 70%;
+    width: 100%;
   }
 
   & a {

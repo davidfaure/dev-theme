@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useState, useEffect, useMemo, useCallback } from 'react'
+import useSound from 'use-sound'
 
 export const ThemeContext = React.createContext({
   darkMode: false,
@@ -14,6 +15,8 @@ export const ThemeProvider = ({ children }) => {
     JSON.parse(localStorage.getItem(DARK_MODE_ITEM))
 
   const [darkMode, setDarkMode] = useState(false)
+  const [playbackRate] = useState(1)
+  const [play] = useSound('/sounds/Pop.mp3', { volume: 0.5, playbackRate })
 
   useEffect(() => {
     if (localStorage.getItem(DARK_MODE_ITEM)) {
@@ -36,7 +39,8 @@ export const ThemeProvider = ({ children }) => {
 
     localStorage.setItem(DARK_MODE_ITEM, JSON.stringify(darkVar))
     setDarkMode(darkVar)
-  }, [darkMode])
+    play()
+  }, [darkMode, play])
 
   const value = useMemo(
     () => ({
