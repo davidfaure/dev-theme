@@ -20,6 +20,7 @@ import { hero } from '../../data'
 import { Canvas } from '@react-three/fiber'
 import { FaCheck, FaDownload, FaSpinner } from 'react-icons/fa'
 import { LanguageContext } from '../../context/LanguageContext'
+import Sparkles from './Sparkles'
 
 const Hero = () => {
   const isDesktop = useMedia({
@@ -68,30 +69,32 @@ const Hero = () => {
               dangerouslySetInnerHTML={{ __html: hero[lang].headingText }}
             />
             {!isDownloaded ? (
-              <Button
-                whileHover={{ y: -1 }}
-                whileTap={{ y: 1 }}
-                onClick={() => setIsDownloading(true)}
-              >
-                <a
-                  href={
-                    lang === 'FR'
-                      ? '/CV/David_Faure_Developpeur_Full_Stack.pdf'
-                      : '/CV/David_Faure_Developpeur_Full_Stack_EN.pdf'
-                  }
-                  aria-label='CV'
-                  download
-                  target='_blank'
-                  rel='noreferrer'
+              <Sparkles>
+                <Button
+                  whileHover={{ y: -1 }}
+                  whileTap={{ y: 1 }}
+                  onClick={() => setIsDownloading(true)}
                 >
-                  {hero[lang].downloadText}{' '}
-                  {!isDownloading ? (
-                    <FaDownload style={{ marginLeft: 10 }} />
-                  ) : (
-                    <FaSpinner style={{ marginLeft: 10 }} />
-                  )}
-                </a>
-              </Button>
+                  <a
+                    href={
+                      lang === 'FR'
+                        ? '/CV/David_Faure_Developpeur_Full_Stack.pdf'
+                        : '/CV/David_Faure_Developpeur_Full_Stack_EN.pdf'
+                    }
+                    aria-label='CV'
+                    download
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    {hero[lang].downloadText}{' '}
+                    {!isDownloading ? (
+                      <FaDownload style={{ marginLeft: 10 }} />
+                    ) : (
+                      <FaSpinner style={{ marginLeft: 10 }} />
+                    )}
+                  </a>
+                </Button>
+              </Sparkles>
             ) : (
               <Button>
                 {hero[lang].downloadedText}{' '}
@@ -183,7 +186,7 @@ const Button = styled(m.button)`
   justify-content: space-around;
 
   @media (max-width: 500px) {
-    width: 70%;
+    width: 100%;
   }
 
   & a {
