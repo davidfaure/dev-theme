@@ -269,8 +269,7 @@ export const template = {
     infoText: `<p>Salut! j'ai fait ce template personnalisé pour gagner du temps lors de la mise en place d'un nouveau projet <strong>React</strong>. Vous pouvez l'utiliser en tapant ceci dans votre terminal préféré :</p>`,
     codeText: `~/Documents/workspace  
 npx create-react-app your-project-name --template azwell-js-redux`,
-    descriptionText: `<p>En installant ce template, vous trouverez une application React avec <strong>React-Router</strong> et <strong>Redux</strong> déjà installé et configuré. <strong>Eslint</strong> configuré avec <strong>Prettier</strong> en AirBnb style avec un check à chaque commit. Vous trouverez également <strong>Axios</strong> et mes règles <strong>CSS</strong>. Vous pouvez tout modifier si cela ne vous convient pas</p>`,
-    finalText: `<p>N'hésitez pas à me contacter pour toutes questions - Merci</p>`,
+    descriptionText: `<p>En installant ce template, vous trouverez une application React avec <strong>React-Router</strong> et <strong>Redux</strong> déjà installé et configuré. <strong>Eslint</strong> configuré avec <strong>Prettier</strong> en AirBnb style avec un check à chaque commit. Vous trouverez également <strong>Axios</strong> et mes règles <strong>CSS</strong>. Vous pouvez tout modifier si cela ne vous convient pas.</p><p>N'hésitez pas à me contacter pour toutes questions.</p>`,
   },
   EN: {
     headingText: 'Create React App (CRA) Template',
@@ -278,6 +277,10 @@ npx create-react-app your-project-name --template azwell-js-redux`,
     npmButton: 'I want it',
     githubLink: 'https://github.com/davidfaure/cra-template-azwell-js-redux',
     githubButton: 'Source',
+    infoText: `<p>Hello! I've created this custom template to save time when setting up a brand new <strong>React</strong> project. You can use it by typing this command in your favorite terminal app :</p>`,
+    codeText: `~/Documents/workspace  
+npx create-react-app your-project-name --template azwell-js-redux`,
+    descriptionText: `<p>Installing this template to have a React app with <strong>React-Router</strong> and <strong>Redux</strong> already installed and configured. <strong>Eslint</strong> is configured with <strong>Prettier</strong> in AirBnb style with a lint-check before every commit. You will also find <strong>Axios</strong> and my personal <strong>CSS</strong> rules. Of course, you can change anything that is not fitting your need.</p><p>Don't hesitate to reach out to me for any questions.</p>`,
   },
 }
 

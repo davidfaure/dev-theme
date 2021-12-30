@@ -11,6 +11,7 @@ import { LanguageContext } from '../../context/LanguageContext'
 import { ThemeContext } from '../../context/ThemeContext'
 
 import hyperImg from '../../public/images/hyper.png'
+import Sparkles from '../Hero/Sparkles'
 
 const Template = () => {
   const { lang } = React.useContext(LanguageContext)
@@ -53,21 +54,33 @@ const Template = () => {
                     {template[lang].githubButton}
                   </a>
                 </Button>
-                <ButtonNpm whileHover={{ y: -2 }} whileTap={{ y: 1 }}>
-                  <a
-                    href={template[lang].npmLink}
-                    target='_blank'
-                    rel='noreferrer'
-                    tabIndex={-1}
-                  >
-                    {template[lang].npmButton}
-                  </a>
-                </ButtonNpm>
+                <Sparkles>
+                  <ButtonNpm whileHover={{ y: -2 }} whileTap={{ y: 1 }}>
+                    <a
+                      href={template[lang].npmLink}
+                      target='_blank'
+                      rel='noreferrer'
+                      tabIndex={-1}
+                    >
+                      {template[lang].npmButton}
+                    </a>
+                  </ButtonNpm>
+                </Sparkles>
               </ButtonContainer>
             </HeadingWrapper>
-            <pre className='language-javascript'>
-              <code>{template[lang].codeText}</code>
-            </pre>
+            <TextWrapper>
+              <Description
+                dangerouslySetInnerHTML={{ __html: template[lang].infoText }}
+              />
+              <pre className='language-javascript'>
+                <code>{template[lang].codeText}</code>
+              </pre>
+              <Description
+                dangerouslySetInnerHTML={{
+                  __html: template[lang].descriptionText,
+                }}
+              />
+            </TextWrapper>
           </Content>
         </Container>
       </LazyMotion>
@@ -85,7 +98,7 @@ const Wrapper = styled.section`
 `
 
 const Container = styled.div`
-  padding: 60px 20px 140px;
+  padding: 60px 20px 0px;
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
@@ -93,6 +106,7 @@ const Container = styled.div`
 
 const HeadingContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -181,6 +195,7 @@ const Content = styled.div`
   z-index: 100;
 
   pre {
+    align-self: center;
     background-color: #000;
     padding: 16px;
     border-radius: 4px;
@@ -194,6 +209,14 @@ const Content = styled.div`
     background-repeat: no-repeat;
     background-size: 44px 10px;
     background-position: 10px 10px;
+
+    @media (max-width: 500px) {
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 620px) {
+      font-size: 1rem;
+    }
   }
 `
 
@@ -203,7 +226,11 @@ const HeadingWrapper = styled.div`
   align-items: center;
   text-align: center;
   width: 80%;
-  margin-top: 50px;
+  margin: 100px 0px 25px 0px;
+
+  @media (max-width: 1110px) {
+    flex-direction: column;
+  }
 `
 
 const HeadingInfoTitle = styled.h3`
@@ -213,6 +240,10 @@ const HeadingInfoTitle = styled.h3`
   hyphens: auto;
   margin: 10px 10px 10px 0px;
   color: var(--textColor);
+
+  @media (max-width: 1110px) {
+    margin: 10px 10px 20px 0px;
+  }
 
   @media (max-width: 500px) {
     font-size: 2rem;
@@ -293,4 +324,19 @@ const ButtonNpm = styled(m.button)`
     margin-bottom: 2rem;
     width: 220px;
   }
+`
+
+const TextWrapper = styled(m.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 80%;
+`
+
+const Description = styled.p`
+  line-height: 1.8;
+  font-size: 1.6rem;
+  /* flex: 1 0 auto; */
+  color: var(--textColor);
 `
