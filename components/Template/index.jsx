@@ -12,6 +12,7 @@ import { ThemeContext } from '../../context/ThemeContext'
 
 import hyperImg from '../../public/images/hyper.png'
 import Sparkles from '../Hero/Sparkles'
+import Details from './Details'
 
 const Template = () => {
   const { lang } = React.useContext(LanguageContext)
@@ -81,6 +82,11 @@ const Template = () => {
                 }}
               />
             </TextWrapper>
+            <DetailsWrapper>
+              {template[lang].details.map((e) => (
+                <Details key={e.id} text={e.text} image={e.image} />
+              ))}
+            </DetailsWrapper>
           </Content>
         </Container>
       </LazyMotion>
@@ -95,6 +101,7 @@ const Wrapper = styled.section`
   z-index: 110;
   background: var(--backgroundColor);
   overflow: hidden;
+  padding-bottom: 20px;
 `
 
 const Container = styled.div`
@@ -280,6 +287,7 @@ const Button = styled(m.button)`
     color: hsl(225, 100%, 98%);
     display: flex;
     align-items: center;
+    line-height: 1;
   }
 
   &:focus {
@@ -339,4 +347,15 @@ const Description = styled.p`
   font-size: 1.6rem;
   /* flex: 1 0 auto; */
   color: var(--textColor);
+`
+
+const DetailsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  color: var(--textColor);
+  padding: 16px;
+  border-radius: 8px;
+  width: 80%;
+  background-color: hsl(225, 100%, 93%);
 `
