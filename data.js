@@ -256,6 +256,31 @@ export const projects = {
   },
 }
 
+// *** TEMPLATE *** -------------
+
+export const template = {
+  title: 'Template',
+  FR: {
+    headingText: 'Create React App (CRA) Template',
+    npmLink: 'https://www.npmjs.com/package/cra-template-azwell-js-redux',
+    npmButton: 'Je le veux',
+    githubLink: 'https://github.com/davidfaure/cra-template-azwell-js-redux',
+    githubButton: 'Source',
+    infoText: `<p>Salut! j'ai fait ce template personnalisé pour gagner du temps lors de la mise en place d'un nouveau projet <strong>React</strong>. Vous pouvez l'utiliser en tapant ceci dans votre terminal préféré :</p>`,
+    codeText: `~/Documents/workspace  
+npx create-react-app your-project-name --template azwell-js-redux`,
+    descriptionText: `<p>En installant ce template, vous trouverez une application React avec <strong>React-Router</strong> et <strong>Redux</strong> déjà installé et configuré. <strong>Eslint</strong> configuré avec <strong>Prettier</strong> en AirBnb style avec un check à chaque commit. Vous trouverez également <strong>Axios</strong> et mes règles <strong>CSS</strong>. Vous pouvez tout modifier si cela ne vous convient pas</p>`,
+    finalText: `<p>N'hésitez pas à me contacter pour toutes questions - Merci</p>`,
+  },
+  EN: {
+    headingText: 'Create React App (CRA) Template',
+    npmLink: 'https://www.npmjs.com/package/cra-template-azwell-js-redux',
+    npmButton: 'I want it',
+    githubLink: 'https://github.com/davidfaure/cra-template-azwell-js-redux',
+    githubButton: 'Source',
+  },
+}
+
 // *** CONTACT *** --------------
 export const contact = {
   FR: {

@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { metaData } from '../data'
+import Template from '../components/Template'
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Hero />
       <About />
       <Projects />
+      <Template />
       <Contact />
       <Footer />
       {/* <ToastContainer autoClose={false} /> */}
