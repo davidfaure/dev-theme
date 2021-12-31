@@ -26,7 +26,7 @@ export default Details
 
 const Wrapper = styled.div`
   border: none;
-  background: hsl(225, 100%, 95%);
+  background: var(--backgroundColor);
   padding: 12px 16px;
   border-radius: 8px;
   color: var(--textColor);

@@ -357,5 +357,6 @@ const DetailsWrapper = styled.div`
   padding: 16px;
   border-radius: 8px;
   width: 80%;
-  background-color: hsl(225, 100%, 93%);
+  background-color: var(--detailBackgroundColor);
+  margin-top: 40px;
 `

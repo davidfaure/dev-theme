@@ -6,8 +6,8 @@
 <g filter="url(#filter1_i_303_112)">
 <circle cx="194" cy="194" r="148" fill="#0133CC"/>
 </g>
-<rect x="176" y="111" width="35" height="165" rx="17.5" fill="#F4D7F1"/>
-<rect x="277" y="177" width="35" height="165" rx="17.5" transform="rotate(90 277 177)" fill="#F4D7F1"/>
+<rect x="176" y="111" width="35" height="165" rx="17.5" fill="#FFF"/>
+<rect x="277" y="177" width="35" height="165" rx="17.5" transform="rotate(90 277 177)" fill="#FFFF"/>
 <defs>
 <filter id="filter0_i_303_112" x="22" y="22" width="344" height="346" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
