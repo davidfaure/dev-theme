@@ -8,14 +8,14 @@ const Details = ({ text, image }) => {
   return (
     <Wrapper>
       <Container>
-        <Image
-          src={image}
-          alt='check'
-          width={28}
-          height={28}
-          style={{ marginRight: '12px' }}
-          className='check-image'
-        />
+        <ImageWrapper>
+          <Image
+            src={image}
+            alt='check'
+            layout='fill'
+            className='check-image'
+          />
+        </ImageWrapper>
         <DetailText>{text}</DetailText>
       </Container>
     </Wrapper>
@@ -33,6 +33,12 @@ const Wrapper = styled.div`
   /* box-shadow: 0 4px 6px 0 rgb(0 55 83 / 13%); */
 `
 
+const ImageWrapper = styled.div`
+  position: relative;
+  width: 28px;
+  height: 28px;
+`
+
 const Container = styled.span`
   display: flex;
   -webkit-box-align: center;
@@ -46,6 +52,6 @@ const Container = styled.span`
 const DetailText = styled.p`
   font-size: 2rem;
   font-weight: 600;
-  margin: 0px 0px 0px 12px;
+  margin: 4px 0px 0px 12px;
   line-height: 1;
 `

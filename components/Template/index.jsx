@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
+import Parallax from '../Parallax'
+
 import Prism from 'prismjs'
 
 import { template } from '../../data'
@@ -30,15 +32,26 @@ const Template = () => {
           <HeadingContainer>
             <HeadingText tabIndex={0}>{template.title}</HeadingText>
           </HeadingContainer>
-          <ImageWrapper>
-            <Image
-              src={hyperImg}
-              alt='hyper'
-              placeholder='blur'
-              layout='fill'
-              className='hyper-image'
-            />
-          </ImageWrapper>
+          <Parallax offset={10} offsetInitial={50}>
+            <ImageWrapper>
+              <Image
+                src={hyperImg}
+                alt='hyper'
+                placeholder='blur'
+                layout='fill'
+                className='hyper-image'
+                initial={{ opacity: 0, y: 180 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: 'spring',
+                  damping: 18,
+                  stiffness: 80,
+                  bounce: 0.9,
+                  delay: 0.15,
+                }}
+              />
+            </ImageWrapper>
+          </Parallax>
           <Content>
             <HeadingWrapper>
               <HeadingInfoTitle darkMode={darkMode}>
@@ -217,12 +230,8 @@ const Content = styled.div`
     background-size: 44px 10px;
     background-position: 10px 10px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       font-size: 0.8rem;
-    }
-
-    @media (max-width: 620px) {
-      font-size: 1rem;
     }
   }
 `
@@ -321,6 +330,7 @@ const ButtonNpm = styled(m.button)`
     color: hsl(225, 100%, 98%);
     display: flex;
     align-items: center;
+    line-height: 1;
   }
 
   &:focus {
@@ -351,7 +361,7 @@ const Description = styled.p`
 
 const DetailsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 30px;
   color: var(--textColor);
   padding: 16px;
@@ -359,4 +369,8 @@ const DetailsWrapper = styled.div`
   width: 80%;
   background-color: var(--detailBackgroundColor);
   margin-top: 40px;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `
