@@ -352,6 +352,7 @@ const TextWrapper = styled(m.div)`
   justify-content: space-evenly;
   align-items: flex-start;
   width: 80%;
+  color: var(--textColor);
 `
 
 const Description = styled.p`
