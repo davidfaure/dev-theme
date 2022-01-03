@@ -27,6 +27,11 @@ export const navigation = {
       },
       {
         id: 3,
+        label: 'Template',
+        link: '#template',
+      },
+      {
+        id: 4,
         label: 'Contact',
         link: '#contact',
       },

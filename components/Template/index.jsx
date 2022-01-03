@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
+import { Waypoint } from 'react-waypoint'
+
 import Parallax from '../Parallax'
 
 import Prism from 'prismjs'

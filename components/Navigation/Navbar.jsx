@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { AnimateSharedLayout, motion, m } from 'framer-motion'
 import Link from 'next/link'
 
+import { IoTerminal } from 'react-icons/io5'
+
 import DarkModeToggle from './DarkModeToggle'
 
 import { navigation } from '../../data'
@@ -16,40 +18,23 @@ const Navbar = () => {
     <Wrapper>
       <Container>
         <LogoText>{navigation.logoText}</LogoText>
-        <nav>
-          <Menu onMouseLeave={() => setIdx(null)}>
-            <AnimateSharedLayout>
-              {navigation[lang].menu.map((item, index) => (
-                <MenuItem key={item.id} onMouseOver={() => setIdx(index)}>
-                  <Link href={item.link}>
-                    <a tabIndex={0}>
-                      {item.label}
-                      {index === idx && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          layoutId='menuItem'
-                          style={{
-                            position: 'absolute',
-                            width: '100%',
-                            height: '3px',
-                            background: 'var(--textColor)',
-                            bottom: '-12px',
-                            borderRadius: '5px',
-                          }}
-                        />
-                      )}
-                    </a>
-                  </Link>
-                </MenuItem>
-              ))}
-            </AnimateSharedLayout>
-          </Menu>
-        </nav>
         <RightWrapper>
+          <TemplateWrapper>
+            <IoTerminal
+              size={24}
+              color={'#DBE4FF'}
+              style={{ marginRight: 15 }}
+            />
+            <Link href='#template' passHref>
+              <motion.a tabIndex={0} whileHover={{ scale: 1.05 }}>
+                Template
+              </motion.a>
+            </Link>
+            <p>|</p>
+          </TemplateWrapper>
           <Socials>
             {navigation.socialMediaLinks.map((social) => (
-              <SocialsItem key={social.id} whileHover={{ scale: 1.03 }}>
+              <SocialsItem key={social.id} whileHover={{ scale: 1.05 }}>
                 <a
                   href={social.link}
                   aria-label={social.label}
@@ -62,24 +47,24 @@ const Navbar = () => {
             ))}
           </Socials>
           <DarkModeToggle />
+          <ChooseLanguage>
+            <LanguageText
+              title={'FR'}
+              lang={lang}
+              onClick={() => updateLanguage('FR')}
+            >
+              FR
+            </LanguageText>
+            <p>|</p>
+            <LanguageText
+              title={'EN'}
+              lang={lang}
+              onClick={() => updateLanguage('EN')}
+            >
+              EN
+            </LanguageText>
+          </ChooseLanguage>
         </RightWrapper>
-        <ChooseLanguage>
-          <LanguageText
-            title={'FR'}
-            lang={lang}
-            onClick={() => updateLanguage('FR')}
-          >
-            FR
-          </LanguageText>
-          <p>|</p>
-          <LanguageText
-            title={'EN'}
-            lang={lang}
-            onClick={() => updateLanguage('EN')}
-          >
-            EN
-          </LanguageText>
-        </ChooseLanguage>
       </Container>
     </Wrapper>
   )
@@ -94,7 +79,7 @@ const Wrapper = styled.div`
 
   @media (min-width: 900px) {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-space-evenly;
     align-items: center;
     position: absolute;
     top: 0;
@@ -157,7 +142,27 @@ const MenuItem = styled.li`
 
 const RightWrapper = styled.div`
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
+`
+
+const TemplateWrapper = styled(m.div)`
+  display: flex;
+  align-items: center;
+
+  & a {
+    color: hsl(225, 100%, 97%);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 0;
+  }
+
+  & p {
+    color: hsl(225, 100%, 97%);
+    margin: 5px 20px;
+  }
 `
 
 const ChooseLanguage = styled.div`
@@ -197,6 +202,7 @@ const Socials = styled.ul`
 const SocialsItem = styled(motion.li)`
   font-size: 2.2rem;
   cursor: pointer;
+  line-height: 0;
 
   @media (min-width: 1100px) {
     font-size: 2.4rem;

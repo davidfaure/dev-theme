@@ -64,7 +64,7 @@ const Wrapper = styled.div`
   align-items: center;
   border-radius: 40px;
   cursor: pointer;
-  margin-left: 40px;
+  margin: 0px 40px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   border: 1px solid hsla(242, 56%, 55%, 0.1);
   transition: background 400ms ease;

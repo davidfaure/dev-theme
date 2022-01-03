@@ -1,45 +1,68 @@
 import React from 'react'
 import styled from 'styled-components'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { Waypoint } from 'react-waypoint'
+
 import Image from 'next/image'
 
-import { LanguageContext } from '../../context/LanguageContext'
-
 const Details = ({ text, image }) => {
+  const [visible, setVisible] = React.useState(false)
+
   return (
-    <Wrapper>
-      <Container>
-        <ImageWrapper>
-          <Image
-            src={image}
-            alt='check'
-            layout='fill'
-            className='check-image'
-          />
-        </ImageWrapper>
-        <DetailText>{text}</DetailText>
-      </Container>
-    </Wrapper>
+    <Waypoint onEnter={() => setVisible(true)} bottomOffset='200px'>
+      {visible && (
+        <Wrapper
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            type: 'spring',
+            damping: 18,
+            stiffness: 80,
+            bounce: 0.9,
+            delay: 0.15,
+          }}
+        >
+          <LazyMotion features={domAnimation}>
+            <Container>
+              <ImageWrapper>
+                <Image
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  src={image}
+                  alt='check'
+                  layout='fill'
+                  className='check-image'
+                />
+              </ImageWrapper>
+              <DetailText>{text}</DetailText>
+            </Container>
+          </LazyMotion>
+        </Wrapper>
+      )}
+    </Waypoint>
   )
 }
 
 export default Details
 
-const Wrapper = styled.div`
+const Wrapper = styled(m.div)`
   border: none;
   background: var(--backgroundColor);
   padding: 12px 16px;
   border-radius: 8px;
   color: var(--textColor);
-  /* box-shadow: 0 4px 6px 0 rgb(0 55 83 / 13%); */
+  cursor: default;
 `
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled(m.div)`
   position: relative;
   width: 28px;
   height: 28px;
 `
 
-const Container = styled.span`
+const Container = styled(m.span)`
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -49,7 +72,7 @@ const Container = styled.span`
   }
 `
 
-const DetailText = styled.p`
+const DetailText = styled(m.p)`
   font-size: 2rem;
   font-weight: 600;
   margin: 4px 0px 0px 12px;
