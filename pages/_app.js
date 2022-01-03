@@ -4,6 +4,9 @@ import '@fontsource/epilogue/700.css'
 
 import '@fontsource/space-grotesk/500.css'
 import '@fontsource/space-grotesk/700.css'
+
+import 'prismjs/themes/prism-tomorrow.css'
+
 import { LangProvider } from '../context/LanguageContext'
 
 import { ThemeProvider } from '../context/ThemeContext'

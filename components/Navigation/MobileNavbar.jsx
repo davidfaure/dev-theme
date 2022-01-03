@@ -4,6 +4,8 @@ import { FaLinkedin, FaLinkedinIn, FaTimes } from 'react-icons/fa'
 import { FiGithub, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi'
 import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion'
 
+import { IoTerminal } from 'react-icons/io5'
+
 import DarkModeToggle from './DarkModeToggle'
 import { LanguageContext } from '../../context/LanguageContext'
 
@@ -130,7 +132,7 @@ const MobileNavbar = () => {
                     <DropdownItem
                       variants={itemVariants}
                       style={{
-                        borderBottom: '1px solid rgba(221,94,152, 0.2)',
+                        borderBottom: '1px solid hsl(225, 100%, 35%)',
                         paddingBottom: '2rem',
                         marginBottom: '2rem',
                       }}
@@ -139,6 +141,29 @@ const MobileNavbar = () => {
                         {lang === 'FR' ? 'Changer de thème' : 'Change theme'}
                       </DarkModeText>
                       <DarkModeToggle />
+                    </DropdownItem>
+                    <DropdownItem
+                      variants={itemVariants}
+                      style={{
+                        borderBottom: '1px solid hsl(225, 100%, 35%)',
+                        paddingBottom: '2rem',
+                        marginBottom: '2rem',
+                      }}
+                    >
+                      <LinkStyled
+                        href='#template'
+                        aria-label='template'
+                        onClick={() =>
+                          setToggleDropdown((prevState) => !prevState)
+                        }
+                      >
+                        <IoTerminal
+                          color='#6599E2'
+                          size={24}
+                          style={{ marginRight: 15 }}
+                        />{' '}
+                        Template
+                      </LinkStyled>
                     </DropdownItem>
                     <DropdownItem variants={itemVariants}>
                       <LinkStyled

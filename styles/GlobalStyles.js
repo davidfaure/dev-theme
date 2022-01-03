@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
   --inputBackground: hsla(225, 100%, 96%, 0.7);
   --inputBorder: hsl(225, 100%, 88%);
   --inputText: #333;
+  --detailBackgroundColor: hsl(225, 100%, 93%);
 
   --labelColor: hsl(215, 100%, 26%);
   }
@@ -70,6 +71,8 @@ const GlobalStyles = createGlobalStyle`
     --backgroundColor: hsl(225, 100%, 12%);
     background: var(--backgroundColor);
     --projectsBackgroundColor: hsl(225, 100%, 15%);
+
+  --detailBackgroundColor: hsl(225, 100%, 20%);
 
     --inputBackground: hsl(225,100%,10%);
     --inputBorder: hsla(225, 100%, 26%, 0.8);
