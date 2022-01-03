@@ -359,6 +359,9 @@ const Description = styled.p`
   font-size: 1.6rem;
   /* flex: 1 0 auto; */
   color: var(--textColor);
+  & p {
+    color: var(--textColor);
+  }
 `
 
 const DetailsWrapper = styled.div`
