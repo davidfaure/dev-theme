@@ -211,6 +211,7 @@ const StackButton = styled(m.button)`
     props.darkMode ? 'hsl(225, 100%, 18%)' : 'hsl(225, 100%, 94%)'};
   cursor: pointer;
   white-space: nowrap;
+  line-height: 1;
 `
 
 const Wrapper = styled(m.div)`

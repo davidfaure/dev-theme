@@ -23,7 +23,7 @@ const Footer = () => {
       </Copyright>
       <Socials>
         {navigation.socialMediaLinks.map((social) => (
-          <SocialsItem key={social.id} whileHover={{ scale: 1.03 }}>
+          <SocialsItem key={social.id} whileHover={{ scale: 1.05 }}>
             <a
               href={social.link}
               aria-label={social.label}

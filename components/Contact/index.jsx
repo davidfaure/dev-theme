@@ -42,10 +42,6 @@ const Container = styled.div`
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-
-  @media (min-width: 1024px) {
-    padding: 120px 20px;
-  }
 `
 
 const HeadingContainer = styled.div`
