@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
@@ -61,7 +62,6 @@ export default class MyDocument extends Document {
         <body>
           <script dangerouslySetInnerHTML={{ __html: setTheme }}></script>
           <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'></script>
-          {/* <script src='https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.halo.min.js'></script> */}
           <Main />
           <NextScript />
         </body>
