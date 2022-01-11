@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
@@ -60,6 +61,7 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <script dangerouslySetInnerHTML={{ __html: setTheme }}></script>
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'></script>
           <Main />
           <NextScript />
         </body>
