@@ -60,6 +60,8 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <script dangerouslySetInnerHTML={{ __html: setTheme }}></script>
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'></script>
+          {/* <script src='https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.halo.min.js'></script> */}
           <Main />
           <NextScript />
         </body>
