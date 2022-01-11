@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Image from 'next/image'
 import { useMedia } from 'react-use-media'
@@ -8,19 +8,18 @@ import dynamic from 'next/dynamic'
 import ViewMoreBar from './ViewMoreBar'
 import Parallax from '../Parallax'
 const Background = dynamic(() => import('./Background'), { ssr: false })
-import LoadingScreen from './LoadingScreen'
 import Wave from '../Waves/Wave'
 
-// import bg from '../../public/images/hero-background.png'
 import bg from '../../public/images/hero-background-blue.png'
 
 import { ThemeContext } from '../../context/ThemeContext'
 
 import { hero } from '../../data'
-import { Canvas } from '@react-three/fiber'
 import { FaCheck, FaDownload, FaSpinner } from 'react-icons/fa'
 import { LanguageContext } from '../../context/LanguageContext'
 import Sparkles from './Sparkles'
+
+import HALO from 'vanta/dist/vanta.halo.min'
 
 const Hero = () => {
   const isDesktop = useMedia({
@@ -33,7 +32,29 @@ const Hero = () => {
   const { darkMode } = useContext(ThemeContext)
   const { lang } = useContext(LanguageContext)
 
-  const [hasLoaded, setHasLoaded] = useState(false)
+  const [vantaEffect, setVantaEffect] = useState(0)
+
+  const vantaRef = useRef(null)
+  useEffect(() => {
+    if (!vantaEffect && isDesktop) {
+      setVantaEffect(
+        HALO({
+          el: vantaRef.current,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          xOffset: 0.2,
+          yOffset: 0.04,
+          backgroundColor: '#006ED7',
+        })
+      )
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy()
+    }
+  }, [vantaEffect, isDesktop])
 
   React.useEffect(() => {
     if (isDownloading) {
@@ -45,15 +66,17 @@ const Hero = () => {
   }, [isDownloading])
 
   return (
-    <Wrapper darkMode={darkMode}>
+    <Wrapper darkMode={darkMode} ref={vantaRef}>
       <LazyMotion features={domAnimation}>
-        <Image
-          src={bg}
-          layout='fill'
-          objectFit='cover'
-          placeholder='blur'
-          alt='Background'
-        />
+        {!isDesktop && (
+          <Image
+            src={bg}
+            layout='fill'
+            objectFit='cover'
+            placeholder='blur'
+            alt='Background'
+          />
+        )}
         <Container>
           <Parallax offset={isDesktop ? 10 : 0} offsetInitial={50}>
             <HeadingText
@@ -102,51 +125,11 @@ const Hero = () => {
               </Button>
             )}
           </Parallax>
-          {isDesktop ? (
-            <Parallax offset={-30} offsetInitial={-30}>
-              <m.div
-                animate={{ scale: [1, 0.95, 1] }}
-                transition={{
-                  type: 'spring',
-                  bounce: 0.8,
-                }}
-                onAnimationComplete={() => setHasLoaded(true)}
-              >
-                <LaptopImageWrapper
-                  animate={{ y: [0, 5, 0] }}
-                  style={{ position: 'relative' }}
-                  transition={{
-                    type: 'tween',
-                    repeat: Infinity,
-                    repeatType: 'reverse',
-                    duration: 4,
-                  }}
-                >
-                  <Picture>
-                    <source srcSet='/images/macbook.webp' type='image/webp' />
-                    <LaptopImage
-                      initial={{ opacity: 0, y: 180, rotate: 7 }}
-                      animate={{ opacity: 1, y: 0, rotate: 0 }}
-                      transition={{
-                        type: 'spring',
-                        damping: 18,
-                        stiffness: 90,
-                        bounce: 0.8,
-                        delay: 0.25,
-                      }}
-                      src='/images/macbook.png'
-                      alt='Laptop'
-                      loading='lazy'
-                    />
-                  </Picture>
-                  {hasLoaded && <LoadingScreen />}
-                </LaptopImageWrapper>
-              </m.div>
-            </Parallax>
-          ) : null}
         </Container>
-        <Background />
-        <ViewMoreBar />
+        {!isDesktop && <Background />}
+        <ViewMoreWrapper>
+          <ViewMoreBar />
+        </ViewMoreWrapper>
         <WaveWrapper>
           <Wave
             initial={{ y: 60 }}
@@ -253,6 +236,15 @@ const Container = styled.div`
 
   @media (min-width: 500px) and (max-width: 820px) and (orientation: landscape) {
     height: 100%;
+  }
+`
+
+const ViewMoreWrapper = styled(m.div)`
+  width: 100%;
+  position: absolute;
+  bottom: -15px;
+  @media (max-width: 768px) {
+    bottom: -5px;
   }
 `
 
