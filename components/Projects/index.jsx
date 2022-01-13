@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 
@@ -8,18 +8,9 @@ import Wave from '../Waves/Wave'
 
 import { projects } from '../../data'
 
-import bg from '../../public/images/projects-background.png'
-
 const Projects = () => {
   return (
     <Wrapper>
-      <BackgroundImage
-        src={bg}
-        layout='fill'
-        objectFit='cover'
-        placeholder='blur'
-        alt='Background'
-      />
       <Container id='projects'>
         <HeadingText tabIndex={0}>{projects.headerText} &mdash;</HeadingText>
         <InfoText dangerouslySetInnerHTML={{ __html: projects.infoText }} />
@@ -49,7 +40,7 @@ export default Projects
 const Wrapper = styled.div`
   position: relative;
   z-index: 1000;
-  background: var(--projectsBackgroundColor);
+  background: var(--bubbleSide);
   top: 0px;
 `
 
@@ -70,11 +61,7 @@ const HeadingText = styled.h2`
   margin-top: 0;
   font-size: 4.2rem;
   margin-bottom: 60px;
-  background: radial-gradient(
-    circle farthest-corner at left center,
-    hsl(195, 100%, 90%) -100%,
-    hsl(288, 100%, 90%) 30%
-  );
+  background: var(--NavTextColor);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -93,7 +80,7 @@ const InfoText = styled.div`
 
   & p {
     line-height: 1.6;
-    color: hsl(288, 100%, 92%);
+    color: var(--NavTextColor);
     max-width: 120ch;
     font-size: 1.6rem;
 

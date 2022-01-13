@@ -9,16 +9,16 @@ import SunSvg from './SunSvg'
 import MoonSvg from './MoonSvg'
 
 const DarkModeToggle = () => {
-  const { darkMode, toggleDarkMode } = useContext(ThemeContext)
+  const { darkmode, toggleDarkMode } = useContext(ThemeContext)
 
   return (
     <Wrapper
       onClick={() => toggleDarkMode()}
       style={{
-        background: !darkMode
-          ? 'rgba(244, 244, 244, 0.3)'
-          : 'hsla(305, 56%, 55%, 0.3)',
-        justifyContent: !darkMode ? 'flex-start' : 'flex-end',
+        background: !darkmode
+          ? 'rgba(251, 174, 61, 0.3)'
+          : 'rgba(0, 0, 0, 0.3)',
+        justifyContent: !darkmode ? 'flex-start' : 'flex-end',
       }}
     >
       <Thumb
@@ -26,17 +26,17 @@ const DarkModeToggle = () => {
         aria-label='Toggle dark mode'
         onClick={() => toggleDarkMode()}
         style={{
-          background: !darkMode
-            ? 'linear-gradient(45deg, hsla(213, 66%, 66%, 0.8),  hsla(305, 56%, 55%, 0.8))'
-            : 'linear-gradient(45deg, hsla(0, 66%, 66%, 0.8),  hsla(305, 56%, 55%, 0.8))',
+          background: !darkmode
+            ? 'rgba(0, 0, 0, 0.5)'
+            : 'rgba(251, 174, 61, 1)',
         }}
-        animate={{ x: !darkMode ? -2 : 2 }}
+        animate={{ x: !darkmode ? -2 : 2 }}
         transition={{ type: 'spring', damping: 10 }}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
         tabIndex={0}
       >
-        {!darkMode ? (
+        {!darkmode ? (
           <SunSvg />
         ) : (
           <motion.div
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   cursor: pointer;
   margin-left: 40px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-  border: 1px solid hsla(305, 56%, 55%, 0.1);
+  border: 1px solid hsla(251, 174, 61, 0.1);
   transition: background 400ms ease;
 
   @media (max-width: 500px) {

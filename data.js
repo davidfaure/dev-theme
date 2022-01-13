@@ -2,7 +2,7 @@ import { FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa'
 
 // *** META DATA *** -----------
 export const metaData = {
-  title: 'John Smith | Portfolio',
+  title: 'John Doe | Portfolio',
   description: 'Welcome to my portfolio website',
   ogImage: '/images/og-image.jpg',
 }
@@ -10,7 +10,7 @@ export const metaData = {
 // *** NAVBAR *** --------------
 export const navigation = {
   label: 'Navbar',
-  logoText: 'John Smith',
+  logoText: 'John Doe',
   menu: [
     {
       id: 1,
@@ -54,7 +54,7 @@ export const navigation = {
 export const hero = {
   label: 'Hero',
   headingText:
-    'Hello!<br/> I’m John Smith,<br/> a web developer<br/> from California.',
+    'Hello!<br/> I’m John Doe,<br/> a web developer<br/> from New York.',
   bottomMoreText: 'View more',
   laptopInnerImage: '/images/inside-laptop.png',
   showLoadingAnimation: true,

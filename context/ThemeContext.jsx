@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useState, useEffect, useMemo, useCallback } from 'react'
 
 export const ThemeContext = React.createContext({
-  darkMode: false,
+  darkmode: false,
   toggleDarkMode: () => {},
 })
 
@@ -13,7 +13,7 @@ export const ThemeProvider = ({ children }) => {
     typeof window !== 'undefined' &&
     JSON.parse(localStorage.getItem(DARK_MODE_ITEM))
 
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkmode, setDarkMode] = useState(false)
 
   useEffect(() => {
     if (localStorage.getItem(DARK_MODE_ITEM)) {
@@ -27,7 +27,7 @@ export const ThemeProvider = ({ children }) => {
   }, [localStorageDarkMode])
 
   const toggleDarkMode = useCallback(() => {
-    let darkVar = !darkMode
+    let darkVar = !darkmode
     if (darkVar) {
       document.body.classList.add('dark')
     } else {
@@ -36,14 +36,14 @@ export const ThemeProvider = ({ children }) => {
 
     localStorage.setItem(DARK_MODE_ITEM, JSON.stringify(darkVar))
     setDarkMode(darkVar)
-  }, [darkMode])
+  }, [darkmode])
 
   const value = useMemo(
     () => ({
-      darkMode,
+      darkmode,
       toggleDarkMode,
     }),
-    [darkMode, toggleDarkMode]
+    [darkmode, toggleDarkMode]
   )
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>

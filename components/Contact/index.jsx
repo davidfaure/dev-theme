@@ -57,7 +57,7 @@ const HeadingText = styled.h2`
   font-size: 4.2rem;
   text-align: center;
   margin-bottom: 60px;
-  background: var(--headingColor);
+  background: var(--textColor);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -71,7 +71,7 @@ const HeadingText = styled.h2`
     bottom: -20px;
     width: 30%;
     height: 5px;
-    background: var(--headingColor);
+    background: var(--textColor);
     border-radius: 8px;
     transform: translateX(-50%);
   }

@@ -2,17 +2,20 @@ import React, { memo, useState, useEffect } from 'react'
 import { m, AnimatePresence } from 'framer-motion'
 import { FaApple } from 'react-icons/fa'
 import styled from 'styled-components'
-import { useMedia } from 'react-use-media'
+// import { useMedia } from 'react-use-media'
 
 import { hero } from '../../data'
+import useWindowSize from '../../utils/size'
 
 const LoadingScreen = () => {
+  const size = useWindowSize()
+  const isDesktop = size.width > 1300
   const [showLoadingScreen, setShowLoadingScreen] = useState(true)
   const [loadingState, setLoadingState] = useState(0)
 
-  const isDesktop = useMedia({
-    minWidth: 1300,
-  })
+  // const isDesktop = useMedia({
+  //   minWidth: 1300,
+  // })
 
   useEffect(() => {
     const idx = setTimeout(() => {

@@ -1,13 +1,15 @@
 import * as React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import styled from 'styled-components'
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion'
 import { FiSend, FiAlertTriangle } from 'react-icons/fi'
 import axios from 'axios'
 
 import Confetti from '../Confetti'
+import { ThemeContext } from '../../context/ThemeContext'
 
 const ContactForm = () => {
+  const { darkmode } = useContext(ThemeContext)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [subject, setSubject] = useState('')
@@ -139,7 +141,11 @@ const ContactForm = () => {
                     onChange={(e) => setMessage(e.target.value)}
                   />
                 </InputFieldWrapper>
-                <Button whileHover={{ y: -1 }} whileTap={{ y: 1 }}>
+                <Button
+                  darkmode={darkmode}
+                  whileHover={{ y: -1 }}
+                  whileTap={{ y: 1 }}
+                >
                   {isSending ? (
                     <>Sending...</>
                   ) : (
@@ -210,7 +216,7 @@ const Label = styled.label`
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 5px;
-  color: var(--labelColor);
+  color: var(--textColor);
 
   @media (min-width: 1024px) {
     font-size: 1.6rem;
@@ -218,8 +224,8 @@ const Label = styled.label`
 `
 
 const InputField = styled.input`
-  border: 1px solid var(--inputBorder);
-  color: var(--inputText);
+  border: 1px solid var(--inputBackground);
+  color: var(--textColor);
   background: var(--inputBackground);
   padding: 0.9em 0.5em;
   border-radius: 5px;
@@ -229,15 +235,15 @@ const InputField = styled.input`
   -webkit-appearance: none;
 
   &:focus {
-    border: 1px solid transparent;
-    outline-color: hsl(288, 100%, 78%);
+    border: 1px solid var(--inputBorder);
+    outline-color: var(--inputBorder);
     outline-offset: 2px;
   }
 `
 
 const TextareaField = styled.textarea`
-  border: 1px solid var(--inputBorder);
-  color: var(--inputText);
+  border: 1px solid var(--inputBackground);
+  color: var(--textColor);
   background: var(--inputBackground);
   padding: 0.9em 0.5em;
   border-radius: 5px;
@@ -249,8 +255,8 @@ const TextareaField = styled.textarea`
   -webkit-appearance: none;
 
   &:focus {
-    border: 1px solid transparent;
-    outline-color: hsl(288, 100%, 78%);
+    border: 1px solid var(--inputBorder);
+    outline-color: var(--inputBorder);
     outline-offset: 2px;
   }
 `
@@ -261,14 +267,16 @@ const Button = styled(m.button)`
   margin-top: 20px;
   font-size: 1.8rem;
   border-radius: 5px;
-  background: hsl(288, 100%, 40%);
-  color: hsl(288, 100%, 98%);
+  background: hsla(36, 96%, 75%, 0.8);
+  background: var(--bubbleSide);
+  color: #ffff;
   font-weight: 600;
   display: flex;
   align-items: center;
   cursor: pointer;
   will-change: transform;
   filter: drop-shadow(0 0 0.75rem hsla(288, 98%, 44%, 0.4));
+  filter: drop-shadow(0 0 0.75rem hsla(36, 96%, 75%, 0.4));
   width: 180px;
   justify-content: center;
 
@@ -279,6 +287,7 @@ const Button = styled(m.button)`
   &:focus {
     border: 1px solid transparent;
     outline-color: hsla(288, 98%, 54%, 1);
+    outline-color: hsla(36, 96%, 54%, 1);
     outline-offset: 1px;
   }
 `

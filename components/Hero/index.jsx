@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Image from 'next/image'
-import { useMedia } from 'react-use-media'
+// import { useMedia } from 'react-use-media'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import dynamic from 'next/dynamic'
 
@@ -10,30 +10,37 @@ import Parallax from '../Parallax'
 const Background = dynamic(() => import('./Background'), { ssr: false })
 import LoadingScreen from './LoadingScreen'
 import Wave from '../Waves/Wave'
+import Wave3 from '../Waves/Wave3'
+import Wave2 from '../Waves/Wave2'
 
-import bg from '../../public/images/hero-background.png'
+import useWindowSize from '../../utils/size'
+
+// import bg from '../../public/images/hero-background.png'
+import bg from '../../public/images/background.png'
+import bgDark from '../../public/images/bacground-dark.png'
 
 import { ThemeContext } from '../../context/ThemeContext'
 
 import { hero } from '../../data'
 
 const Hero = () => {
-  const isDesktop = useMedia({
-    minWidth: 800,
-  })
+  const size = useWindowSize()
+  const isDesktop = size.width > 800
+  // const isDesktop = useMedia({
+  //   minWidth: 800,
+  // })
 
-  const { darkMode } = useContext(ThemeContext)
+  const { darkmode } = useContext(ThemeContext)
 
   const [hasLoaded, setHasLoaded] = useState(false)
 
   return (
-    <Wrapper darkMode={darkMode}>
+    <Wrapper darkmode={darkmode}>
       <LazyMotion features={domAnimation}>
         <Image
-          src={bg}
+          src={darkmode ? bg : bgDark}
           layout='fill'
           objectFit='cover'
-          placeholder='blur'
           alt='Background'
         />
         <Container>
@@ -94,10 +101,9 @@ const Hero = () => {
             </Parallax>
           ) : null}
         </Container>
-        <Background />
         <ViewMoreBar />
         <WaveWrapper>
-          <Wave
+          <Wave3
             initial={{ y: 60 }}
             animate={{ y: 0 }}
             transition={{
@@ -119,20 +125,20 @@ export default Hero
 // Styles
 const Wrapper = styled.section`
   height: 100%;
-  background: linear-gradient(
+  /* background: linear-gradient(
     45deg,
     hsla(288, 100%, 26%, 1),
     hsla(288, 100%, 36%, 1)
-  );
+  ); */
   position: relative;
   overflow: hidden;
 
   &:after {
     content: '';
-    background: ${(props) =>
-      props.darkMode
+    /* background: ${(props) =>
+      props.darkmode
         ? 'linear-gradient(145deg, hsla(288, 100%, 26%, 0.2), hsla(288, 100%, 16%, 0.3))'
-        : 'none'};
+        : 'none'}; */
     position: absolute;
     top: 0;
     left: 0;
@@ -200,11 +206,8 @@ const HeadingText = styled(m.h2)`
   font-size: max(4.8rem, 8vw);
   line-height: 1.12;
   max-width: 20ch;
-  background: radial-gradient(
-    circle farthest-corner at left center,
-    hsla(195, 100%, 90%, 1) -50%,
-    hsla(288, 100%, 95%, 1) 50%
-  );
+  background: var(--textColor);
+  background: #fff;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

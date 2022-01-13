@@ -92,7 +92,7 @@ const Container = styled(m.div)`
 `
 
 const Text = styled(m.span)`
-  color: hsl(195, 92%, 85%);
+  color: var(--textColor);
   font-size: 1.4rem;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.03);
@@ -104,7 +104,7 @@ const Text = styled(m.span)`
 const Line = styled(m.div)`
   width: 2px;
   height: 25px;
-  background: rgba(97, 218, 251, 0.7);
+  background: var(--textColor);
   margin-top: 8px;
 
   @media (min-width: 768px) {

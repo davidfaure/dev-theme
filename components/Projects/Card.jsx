@@ -1,18 +1,21 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { useMedia } from 'react-use-media'
+// import { useMedia } from 'react-use-media'
 import Image from 'next/image'
 import { FaGithub } from 'react-icons/fa'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 import { ThemeContext } from '../../context/ThemeContext'
+import useWindowSize from '../../utils/size'
 
 const Card = ({ project, index, totalProjects }) => {
-  const isDesktop = useMedia({
-    minWidth: 1210,
-  })
+  const size = useWindowSize()
+  const isDesktop = size.width > 1210
+  // const isDesktop = useMedia({
+  //   minWidth: 1210,
+  // })
 
-  const { darkMode } = useContext(ThemeContext)
+  const { darkmode } = useContext(ThemeContext)
 
   return (
     <Wrapper
@@ -21,7 +24,7 @@ const Card = ({ project, index, totalProjects }) => {
         marginBottom:
           index % 2 === 0 && isDesktop && totalProjects === 3 ? -30 : 0,
       }}
-      darkMode={darkMode}
+      darkmode={darkmode}
       transition={{ type: 'spring', damping: 8 }}
     >
       <LazyMotion features={domAnimation}>
@@ -118,7 +121,7 @@ const Wrapper = styled(m.li)`
       right: 40px;
       height: 100%;
       background: ${(props) =>
-        props.darkMode
+        props.darkmode
           ? 'none'
           : 'radial-gradient(circle farthest-corner at left center, hsla(195, 92%, 90%, 1) 0%,hsla(288, 98%, 90%, 1) 110%)'};
       filter: blur(30px);

@@ -31,7 +31,7 @@ const Navbar = () => {
                             position: 'absolute',
                             width: '100%',
                             height: '3px',
-                            background: 'var(--textColor)',
+                            background: 'var(--NavTextColor)',
                             bottom: '-12px',
                             borderRadius: '5px',
                           }}
@@ -47,7 +47,7 @@ const Navbar = () => {
         <RightWrapper>
           <Socials>
             {navigation.socialMediaLinks.map((social) => (
-              <SocialsItem key={social.id} whileHover={{ scale: 1.03 }}>
+              <SocialsItem key={social.id}>
                 <a
                   href={social.link}
                   aria-label={social.label}
@@ -93,14 +93,14 @@ const Container = styled.nav`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  font-family: 'Space Grotesk', sans-serif;
+  /* font-family: 'Space Grotesk', sans-serif; */
 `
 
 const LogoText = styled.h1`
   margin: 0;
   font-size: 2.8rem;
   letter-spacing: -0.01em;
-  color: hsl(288, 100%, 98%);
+  color: #ffffff;
 
   @media (min-width: 1100px) {
     font-size: 3rem;
@@ -121,10 +121,10 @@ const Menu = styled.ul`
 const MenuItem = styled.li`
   font-size: 1.6rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.03);
+  /* background: rgba(255, 255, 255, 0.03); */
   border-radius: 5px;
   position: relative;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); */
 
   @media (min-width: 1100px) {
     font-size: 1.8rem;
@@ -132,7 +132,7 @@ const MenuItem = styled.li`
 
   & a {
     padding: 3px 8px;
-    color: hsl(288, 100%, 97%);
+    color: var(--NavTextColor);
   }
 `
 
@@ -152,7 +152,7 @@ const Socials = styled.ul`
   }
 `
 
-const SocialsItem = styled(motion.li)`
+const SocialsItem = styled.li`
   font-size: 2.2rem;
   cursor: pointer;
 
@@ -160,7 +160,11 @@ const SocialsItem = styled(motion.li)`
     font-size: 2.4rem;
   }
 
+  &:hover {
+    transform: rotate(7deg) scale(1.1);
+  }
+
     & a {
-    color: hsl(288, 100%, 97%);
+    color: var(--NavTextColor);
   }
 `

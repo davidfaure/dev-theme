@@ -6,14 +6,14 @@ import dynamic from 'next/dynamic'
 
 const TechBar = dynamic(() => import('./TechBar'), { ssr: false })
 import Parallax from '../Parallax'
-import Wave2 from '../Waves/Wave2'
 
 import { ThemeContext } from '../../context/ThemeContext'
 
 import { about } from '../../data'
+import Wave2 from '../Waves/Wave2'
 
 const About = () => {
-  const { darkMode } = useContext(ThemeContext)
+  const { darkmode } = useContext(ThemeContext)
 
   return (
     <Wrapper id='about'>
@@ -24,7 +24,7 @@ const About = () => {
           </HeadingContainer>
           <Content>
             <Parallax offset={10} offsetInitial={26}>
-              <ProfileImageWrapper darkMode={darkMode}>
+              <ProfileImageWrapper darkmode={darkmode}>
                 <Image
                   src={about.profileImage}
                   alt='Profile'
@@ -73,6 +73,7 @@ const Wrapper = styled.section`
 `
 
 const Container = styled.div`
+  position: relative;
   padding: 60px 20px 140px;
   max-width: 1300px;
   width: 100%;
@@ -96,7 +97,7 @@ const HeadingText = styled.h2`
   font-size: 5rem;
   text-align: center;
   margin-bottom: 40px;
-  background: var(--headingColor);
+  background: var(--textColor);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -110,7 +111,7 @@ const HeadingText = styled.h2`
       left: 50%;
       width: 30%;
       height: 5px;
-      background: var(--headingColor);
+      background: var(--textColor);
       border-radius: 8px;
       transform: translateX(-50%);
       bottom: -20px;
@@ -153,10 +154,10 @@ const ProfileImageWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: ${(props) =>
-      props.darkMode
+    /* background: ${(props) =>
+      props.darkmode
         ? 'none'
-        : 'radial-gradient(circle farthest-corner at left center, hsla(195, 92%, 90%, 1) 0%,hsla(288, 98%, 90%, 1) 110%)'};
+        : 'radial-gradient(circle farthest-corner at left center, hsla(195, 92%, 90%, 1) 0%,hsla(288, 98%, 90%, 1) 110%)'}; */
     filter: blur(20px);
     border-radius: 50%;
     z-index: -1;
