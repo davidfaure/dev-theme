@@ -93,9 +93,9 @@ export default Card
 
 // Styles
 const Wrapper = styled(m.li)`
-  background: hsl(288, 100%, 94%);
-  border-radius: 5px;
-  border-bottom: 10px solid hsl(288, 100%, 88%);
+  background: #ffffff;
+  border-radius: 15px;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   max-width: 500px;
   flex: 1;
@@ -120,10 +120,6 @@ const Wrapper = styled(m.li)`
       left: 40px;
       right: 40px;
       height: 100%;
-      background: ${(props) =>
-        props.darkmode
-          ? 'none'
-          : 'radial-gradient(circle farthest-corner at left center, hsla(195, 92%, 90%, 1) 0%,hsla(288, 98%, 90%, 1) 110%)'};
       filter: blur(30px);
       z-index: -1;
     }
@@ -151,6 +147,7 @@ const Wrapper = styled(m.li)`
 `
 
 const TopContainer = styled.div`
+  border-radius: 15px;
   height: 180px;
   top: 0;
   left: 0;
@@ -217,12 +214,15 @@ const Button = styled(m.button)`
 const ProjectImageContainer = styled.div`
   width: 100%;
   height: 180px;
+  border-radius: 15px;
 `
 
 const ProjectImage = styled(Image)`
   display: block;
   transition: transform 450ms ease-out;
   will-change: transform;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 
   ${Wrapper}:hover & {
     transform: scale(1.02);

@@ -275,7 +275,6 @@ const Button = styled(m.button)`
   align-items: center;
   cursor: pointer;
   will-change: transform;
-  filter: drop-shadow(0 0 0.75rem hsla(288, 98%, 44%, 0.4));
   filter: drop-shadow(0 0 0.75rem hsla(36, 96%, 75%, 0.4));
   width: 180px;
   justify-content: center;
@@ -286,7 +285,6 @@ const Button = styled(m.button)`
 
   &:focus {
     border: 1px solid transparent;
-    outline-color: hsla(288, 98%, 54%, 1);
     outline-color: hsla(36, 96%, 54%, 1);
     outline-offset: 1px;
   }

@@ -69,7 +69,7 @@ const Hero = () => {
                 onAnimationComplete={() => setHasLoaded(true)}
               >
                 <LaptopImageWrapper
-                  animate={{ y: [0, 5, 0] }}
+                  animate={{ y: [0, 10, 0] }}
                   style={{ position: 'relative' }}
                   transition={{
                     type: 'tween',
@@ -79,7 +79,7 @@ const Hero = () => {
                   }}
                 >
                   <Picture>
-                    <source srcSet='/images/macbook.webp' type='image/webp' />
+                    {/* <source srcSet='/images/macbook.webp' type='image/webp' /> */}
                     <LaptopImage
                       initial={{ opacity: 0, y: 180, rotate: 7 }}
                       animate={{ opacity: 1, y: 0, rotate: 0 }}
@@ -90,7 +90,12 @@ const Hero = () => {
                         bounce: 0.8,
                         delay: 0.25,
                       }}
-                      src='/images/macbook.png'
+                      // src={
+                      //   darkmode
+                      //     ? '/images/3DMacbook.png'
+                      //     : '/images/black3DMacbook.png'
+                      // }
+                      src='/images/iMac.png'
                       alt='Laptop'
                       loading='lazy'
                     />
@@ -103,7 +108,7 @@ const Hero = () => {
         </Container>
         <ViewMoreBar />
         <WaveWrapper>
-          <Wave3
+          <Wave
             initial={{ y: 60 }}
             animate={{ y: 0 }}
             transition={{
@@ -125,20 +130,11 @@ export default Hero
 // Styles
 const Wrapper = styled.section`
   height: 100%;
-  /* background: linear-gradient(
-    45deg,
-    hsla(288, 100%, 26%, 1),
-    hsla(288, 100%, 36%, 1)
-  ); */
   position: relative;
   overflow: hidden;
 
   &:after {
     content: '';
-    /* background: ${(props) =>
-      props.darkmode
-        ? 'linear-gradient(145deg, hsla(288, 100%, 26%, 0.2), hsla(288, 100%, 16%, 0.3))'
-        : 'none'}; */
     position: absolute;
     top: 0;
     left: 0;
@@ -150,28 +146,30 @@ const Wrapper = styled.section`
 const Container = styled.div`
   position: relative;
   z-index: 90;
-  display: grid;
-  place-content: center;
+  display: flex;
   align-items: center;
-  height: 94%;
-  grid-template-columns: 1fr;
-  max-width: 1400px;
-  padding: 0 20px;
-  margin: 0 auto;
+  justify-content: space-between;
+  height: 80%;
+  width: 90vw;
+  margin-left: 10vw;
 
-  @media (min-width: 800px) {
-    grid-template-columns: 1fr 1fr;
-    padding: 0 20px;
-    height: 92%;
-  }
-
-  @media (min-width: 900px) {
-    padding: 0 40px;
-    gap: 40px;
+  @media (max-width: 900px) {
+    width: 100vw;
+    margin: 0 auto;
+    padding: 40px;
   }
 
   @media (min-width: 1400px) {
-    height: 86%;
+    height: 94%;
+    width: 100vw;
+    margin: 0 auto;
+    padding-left: 10vw;
+  }
+
+  @media (min-width: 1700px) {
+    height: 94%;
+    width: 100vw;
+    margin: 0 auto;
   }
 
   @media (min-width: 500px) and (max-width: 820px) and (orientation: landscape) {
@@ -193,7 +191,11 @@ const WaveWrapper = styled(m.div)`
   }
 
   @media (min-width: 1305px) {
-    bottom: -75px;
+    bottom: -100px;
+  }
+
+  @media (min-width: 2559px) {
+    bottom: -130px;
   }
 
   @media (min-width: 500px) and (max-width: 820px) and (orientation: landscape) {
@@ -237,11 +239,6 @@ const LaptopImageWrapper = styled(m.div)`
     left: 40px;
     right: 40px;
     height: 100%;
-    background: radial-gradient(
-      circle farthest-corner at left center,
-      hsla(195, 92%, 90%, 0.16) 0%,
-      hsla(288, 98%, 90%, 0.16) 110%
-    );
     filter: blur(50px);
     z-index: -1;
     transform: rotate(-2deg);

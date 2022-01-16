@@ -56,7 +56,7 @@ export const hero = {
   headingText:
     'Hello!<br/> I’m John Doe,<br/> a web developer<br/> from New York.',
   bottomMoreText: 'View more',
-  laptopInnerImage: '/images/inside-laptop.png',
+  laptopInnerImage: '/images/chevron.png',
   showLoadingAnimation: true,
 }
 
@@ -71,8 +71,9 @@ export const techImages = [
   { tech: 'react', logo: '/images/tech/react.png' },
   { tech: 'javascript', logo: '/images/tech/javascript.png' },
   { tech: 'typescript', logo: '/images/tech/typescript.png' },
-  { tech: 'graphql', logo: '/images/tech/graphql.png' },
+  { tech: 'nextjs', logo: '/images/tech/nextjs.png' },
   { tech: 'framer-motion', logo: '/images/tech/framer-motion.png' },
+  { tech: 'nodejs', logo: '/images/tech/nodejs.png' },
 ]
 
 // *** PROJECTS *** --------------
@@ -101,7 +102,16 @@ export const projects = {
     {
       id: 3,
       image: '/images/projects/placeholder-project.png',
-      title: 'Some project dfdf dfdfdfdfd s fdfdfdf',
+      title: 'Some project',
+      description:
+        'Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum"',
+      link: '#',
+      githubLink: 'https://github.com/',
+    },
+    {
+      id: 4,
+      image: '/images/projects/placeholder-project.png',
+      title: 'Some project',
       description:
         'Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum"',
       link: '#',

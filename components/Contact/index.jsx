@@ -1,20 +1,47 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { m, LazyMotion, domAnimation } from 'framer-motion'
+
 import ContactForm from './ContactForm'
 
 import { contact } from '../../data'
+import { ThemeContext } from '../../context/ThemeContext'
 
 const Contact = () => {
+  const { darkmode } = React.useContext(ThemeContext)
   return (
     <Wrapper>
-      <Container id='contact'>
-        <HeadingContainer>
-          <HeadingText>{contact.headingText}</HeadingText>
-        </HeadingContainer>
-        <InfoText dangerouslySetInnerHTML={{ __html: contact.infoText }} />
-        <ContactForm />
-      </Container>
+      <LazyMotion features={domAnimation}>
+        <Container id='contact'>
+          <HeadingContainer>
+            <HeadingText>{contact.headingText}</HeadingText>
+          </HeadingContainer>
+          <InfoText dangerouslySetInnerHTML={{ __html: contact.infoText }} />
+          <FormWrapper>
+            <Picture>
+              <HelloImage
+                animate={{ y: [0, 10, 0] }}
+                style={{ position: 'relative' }}
+                transition={{
+                  type: 'tween',
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  duration: 4,
+                }}
+                src={
+                  darkmode
+                    ? '/images/blackHello.png'
+                    : '/images/yellowHello.png'
+                }
+                alt='Hello'
+                loading='lazy'
+              />
+            </Picture>
+            <ContactForm />
+          </FormWrapper>
+        </Container>
+      </LazyMotion>
     </Wrapper>
   )
 }
@@ -39,8 +66,9 @@ const Container = styled.div`
   width: 100%;
   margin: 0 auto;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1340px) {
     padding: 120px 20px;
+    max-width: 1200px;
   }
 `
 
@@ -98,3 +126,27 @@ const InfoText = styled.div`
     }
   }
 `
+
+const FormWrapper = styled.div`
+  display: grid;
+  align-items: center;
+  padding: 0;
+  max-width: 100%;
+
+  @media (min-width: 1340px) {
+    gap: 8rem;
+    grid-template-columns: 1fr 2fr;
+  }
+`
+
+const HelloImage = styled(m.img)`
+  display: none;
+
+  @media (min-width: 1340px) {
+    display: block;
+    padding-bottom: 8rem;
+    max-width: 100%;
+  }
+`
+
+const Picture = styled.picture``

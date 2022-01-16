@@ -2,7 +2,6 @@ import React, { memo, useState, useEffect } from 'react'
 import { m, AnimatePresence } from 'framer-motion'
 import { FaApple } from 'react-icons/fa'
 import styled from 'styled-components'
-// import { useMedia } from 'react-use-media'
 
 import { hero } from '../../data'
 import useWindowSize from '../../utils/size'
@@ -12,10 +11,6 @@ const LoadingScreen = () => {
   const isDesktop = size.width > 1300
   const [showLoadingScreen, setShowLoadingScreen] = useState(true)
   const [loadingState, setLoadingState] = useState(0)
-
-  // const isDesktop = useMedia({
-  //   minWidth: 1300,
-  // })
 
   useEffect(() => {
     const idx = setTimeout(() => {
@@ -45,7 +40,7 @@ const LoadingScreen = () => {
         {showLoadingScreen && hero.showLoadingAnimation ? (
           <Screen
             initial={{ opacity: 0, y: 5, rotate: 0 }}
-            animate={{ opacity: 1, y: 0, rotate: -2.35 }}
+            animate={{ opacity: 1, y: 0, rotate: -4.5 }}
             exit={{ opacity: 0 }}
             transition={{
               type: 'spring',
@@ -66,10 +61,10 @@ const LoadingScreen = () => {
           </Screen>
         ) : (
           <picture>
-            <source
+            {/* <source
               srcSet={hero.laptopInnerImage.split('.')[0] + '.webp'}
               type='image/webp'
-            />
+            /> */}
             <LaptopInnerImage
               src={hero.laptopInnerImage}
               initial={{ opacity: 0 }}
@@ -94,7 +89,7 @@ export default memo(LoadingScreen)
 
 // Styles
 const Screen = styled(m.div)`
-  position: absolute;
+  /* position: absolute;
   top: 13.2%;
   left: 14%;
   right: 16%;
@@ -105,16 +100,39 @@ const Screen = styled(m.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; */
+  position: absolute;
+  top: 14%;
+  left: 15%;
+  right: 39%;
+  bottom: 46%;
+  background: #161616;
+  transform: rotate(-5.35deg);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  /* border: 1px solid red; */
 `
 
 const LaptopInnerImage = styled(m.img)`
-  width: 73%;
+  /* width: 73%;
   position: absolute;
   top: 8%;
   left: 13%;
   right: 16%;
   bottom: 25%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  width: 100%;
+  position: absolute;
+  top: -18%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -128,14 +146,14 @@ const AppleLogo = styled(FaApple)`
   margin-bottom: 30px;
 
   @media (min-width: 1300px) {
-    font-size: 4.2rem;
+    font-size: 6.2rem;
     margin-bottom: 40px;
   }
 `
 
 const OuterBar = styled(m.div)`
   width: 80px;
-  height: 4px;
+  height: 8px;
   background: #474747;
   border-radius: 30px;
   position: relative;
@@ -146,7 +164,7 @@ const OuterBar = styled(m.div)`
 `
 
 const InnerBar = styled(m.div)`
-  height: 4px;
+  height: 8px;
   background: #fff;
   border-radius: 30px;
   position: absolute;

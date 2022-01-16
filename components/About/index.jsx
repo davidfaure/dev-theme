@@ -141,7 +141,7 @@ const ProfileImageWrapper = styled.div`
   position: relative;
   height: 250px;
   width: 250px;
-  border: 5px solid #faf1f8;
+  border: 5px solid var(--textColor);
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   left: 50%;
@@ -168,7 +168,7 @@ const ProfileImageWrapper = styled.div`
   }
 
   @media (min-width: 1100px) {
-    border: 10px solid #faf1f8;
+    border: 10px solid var(--textColor);
     width: 350px;
     height: 350px;
   }
