@@ -1,7 +1,3 @@
-// import '@fontsource/epilogue/400.css'
-// import '@fontsource/epilogue/500.css'
-// import '@fontsource/epilogue/700.css'
-
 import '@fontsource/montserrat/400.css'
 import '@fontsource/montserrat/500.css'
 import '@fontsource/montserrat/700.css'

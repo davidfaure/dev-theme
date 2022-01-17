@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-// import { useMedia } from 'react-use-media'
 import Image from 'next/image'
 import { FaGithub } from 'react-icons/fa'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
@@ -11,9 +10,6 @@ import useWindowSize from '../../utils/size'
 const Card = ({ project, index, totalProjects }) => {
   const size = useWindowSize()
   const isDesktop = size.width > 1210
-  // const isDesktop = useMedia({
-  //   minWidth: 1210,
-  // })
 
   const { darkmode } = useContext(ThemeContext)
 
@@ -35,8 +31,6 @@ const Card = ({ project, index, totalProjects }) => {
               layout='fill'
               alt={project.title}
               placeholder='blur'
-              objectFit='cover'
-              objectPosition='center'
               blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAjSURBVHgB7cqhEQAACAJAdP897d6ZZQUCkc9fN/sQNESJnkgetQPh0RGf5wAAAABJRU5ErkJggg=='
             />
           </ProjectImageContainer>
@@ -66,7 +60,7 @@ const Card = ({ project, index, totalProjects }) => {
                     marginTop: -7,
                     marginLeft: 20,
                     cursor: 'pointer',
-                    color: 'hsla(288, 98%, 30%, 1)',
+                    color: '#000000',
                   }}
                 />
               </a>
@@ -94,7 +88,7 @@ export default Card
 // Styles
 const Wrapper = styled(m.li)`
   background: #ffffff;
-  border-radius: 15px;
+  border-radius: 6px;
   border-bottom: 10px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   max-width: 500px;
@@ -135,7 +129,7 @@ const Wrapper = styled(m.li)`
       bottom: -3%;
       height: calc(106% + 10px);
       width: 106%;
-      border-radius: 10px;
+      border-radius: 6px;
       pointer-events: none;
       will-change: border;
     }
@@ -147,7 +141,7 @@ const Wrapper = styled(m.li)`
 `
 
 const TopContainer = styled.div`
-  border-radius: 15px;
+  border-radius: 16px;
   height: 180px;
   top: 0;
   left: 0;
@@ -176,7 +170,7 @@ const Title = styled.h3`
   hyphens: auto;
 
   a {
-    color: #392049;
+    color: #000000;
   }
 `
 
@@ -188,18 +182,15 @@ const Description = styled.p`
 
 const Button = styled(m.button)`
   border: none;
-  width: 100%;
-  padding: 16px 30px;
+  width: 50%;
+  padding: 12px 20px;
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  background: radial-gradient(
-    circle farthest-corner at left center,
-    hsla(195, 92%, 60%, 1) 0%,
-    hsla(288, 98%, 60%, 1) 110%
-  );
-  border-radius: 5px;
-  filter: drop-shadow(0 0 7.5px rgba(204, 75, 194, 0.4));
+  background: #fbad3c;
+
+  border-radius: 6px;
+  filter: drop-shadow(0 0 0.75rem hsla(36, 96%, 75%, 0.4));
 
   & a {
     color: #392049;
@@ -207,22 +198,19 @@ const Button = styled(m.button)`
   }
 
   &:focus {
-    outline-color: hsla(288, 98%, 54%, 1);
+    outline-color: hsla(36, 96%, 54%, 1);
   }
 `
 
 const ProjectImageContainer = styled.div`
   width: 100%;
   height: 180px;
-  border-radius: 15px;
 `
 
 const ProjectImage = styled(Image)`
   display: block;
   transition: transform 450ms ease-out;
   will-change: transform;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
 
   ${Wrapper}:hover & {
     transform: scale(1.02);

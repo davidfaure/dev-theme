@@ -154,10 +154,6 @@ const ProfileImageWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: ${(props) =>
-      props.darkmode
-        ? 'none'
-        : 'radial-gradient(circle farthest-corner at left center, hsla(195, 92%, 90%, 1) 0%,hsla(288, 98%, 90%, 1) 110%)'}; */
     filter: blur(20px);
     border-radius: 50%;
     z-index: -1;

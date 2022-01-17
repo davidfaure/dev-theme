@@ -267,7 +267,6 @@ const Button = styled(m.button)`
   margin-top: 20px;
   font-size: 1.8rem;
   border-radius: 5px;
-  background: hsla(36, 96%, 75%, 0.8);
   background: var(--bubbleSide);
   color: #ffff;
   font-weight: 600;

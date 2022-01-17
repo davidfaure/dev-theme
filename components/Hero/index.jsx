@@ -7,15 +7,11 @@ import dynamic from 'next/dynamic'
 
 import ViewMoreBar from './ViewMoreBar'
 import Parallax from '../Parallax'
-const Background = dynamic(() => import('./Background'), { ssr: false })
 import LoadingScreen from './LoadingScreen'
 import Wave from '../Waves/Wave'
-import Wave3 from '../Waves/Wave3'
-import Wave2 from '../Waves/Wave2'
 
 import useWindowSize from '../../utils/size'
 
-// import bg from '../../public/images/hero-background.png'
 import bg from '../../public/images/background.png'
 import bgDark from '../../public/images/bacground-dark.png'
 
@@ -26,9 +22,6 @@ import { hero } from '../../data'
 const Hero = () => {
   const size = useWindowSize()
   const isDesktop = size.width > 800
-  // const isDesktop = useMedia({
-  //   minWidth: 800,
-  // })
 
   const { darkmode } = useContext(ThemeContext)
 
@@ -42,6 +35,7 @@ const Hero = () => {
           layout='fill'
           objectFit='cover'
           alt='Background'
+          draggable='false'
         />
         <Container>
           <Parallax offset={isDesktop ? 10 : 0} offsetInitial={50}>
@@ -79,7 +73,6 @@ const Hero = () => {
                   }}
                 >
                   <Picture>
-                    {/* <source srcSet='/images/macbook.webp' type='image/webp' /> */}
                     <LaptopImage
                       initial={{ opacity: 0, y: 180, rotate: 7 }}
                       animate={{ opacity: 1, y: 0, rotate: 0 }}
@@ -90,11 +83,6 @@ const Hero = () => {
                         bounce: 0.8,
                         delay: 0.25,
                       }}
-                      // src={
-                      //   darkmode
-                      //     ? '/images/3DMacbook.png'
-                      //     : '/images/black3DMacbook.png'
-                      // }
                       src='/images/iMac.png'
                       alt='Laptop'
                       loading='lazy'
@@ -255,15 +243,3 @@ const LaptopImage = styled(m.img)`
 `
 
 const Picture = styled.picture``
-
-// const IpadImage = styled(motion.img)`
-//   display: block;
-//   max-width: 365px;
-//   position: absolute;
-//   bottom: -460px;
-//   left: 50%;
-
-//   @media (min-width: 900px) {
-//     display: none;
-//   }
-// `

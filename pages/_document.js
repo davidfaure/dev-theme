@@ -53,10 +53,10 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet='utf-8' />
           <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
-          <meta name='theme-color' content='#EEAFFE' />
+          <meta name='theme-color' content='#fbad3c' />
           <link rel='icon' type='image/png' href='/favicon.png' />
-          <meta name='theme-color' content='#EEAFFE' />
-          <meta name='msapplication-TileColor' content='#EEAFFE' />
+          <meta name='theme-color' content='#fbad3c' />
+          <meta name='msapplication-TileColor' content='#fbad3c' />
         </Head>
         <body>
           <script dangerouslySetInnerHTML={{ __html: setTheme }}></script>

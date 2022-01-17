@@ -1,32 +1,39 @@
-const sgMail = require('@sendgrid/mail')
-const { SENDGRID_API_KEY } = process.env
+const nodemailer = require('nodemailer')
+const { PASSWORD, SEND_EMAIL, AUTH_EMAIL } = process.env
 
-const contactForm = async (req, res) => {
+const contactForm = (req, res) => {
   const { name, email, subject, message } = req.body
 
-  sgMail.setApiKey(SENDGRID_API_KEY)
+  const transporter = nodemailer.createTransport({
+    port: 465,
+    host: 'smtp.gmail.com',
+    auth: {
+      user: AUTH_EMAIL,
+      pass: PASSWORD,
+    },
+    secure: true,
+  })
 
   const html = `
-    <h2>${name}</h2>
-    <h4>${email}</h4>
-    <h4>${subject}</h4>
-    <p>${message}</p>
+    <h2>User: ${name}</h2>
+    <h4>Email: ${email}</h4>
+    <h4>Subject: ${subject}</h4>
+    <p>Message: ${message}</p>
   `
 
   const msg = {
-    to: process.env.SENDGRID_EMAIL,
-    from: process.env.SENDGRID_EMAIL,
+    to: SEND_EMAIL,
+    from: email,
     subject: `Contact form - Portfolio: ${subject}`,
     html: html,
   }
 
-  try {
-    await sgMail.send(msg)
-
+  transporter.sendMail(msg, (err, info) => {
+    if (err) {
+      return res.status(400).json({ message: err.message })
+    }
     return res.status(200).json({ message: 'Email sent!' })
-  } catch (err) {
-    return res.status(400).json({ message: err.message })
-  }
+  })
 }
 
 export default contactForm

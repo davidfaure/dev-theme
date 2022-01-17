@@ -128,5 +128,5 @@ export const contact = {
 
 // *** FOOTER *** --------------
 export const footer = {
-  text: 'John Smith',
+  text: 'John Doe',
 }

@@ -61,10 +61,6 @@ const LoadingScreen = () => {
           </Screen>
         ) : (
           <picture>
-            {/* <source
-              srcSet={hero.laptopInnerImage.split('.')[0] + '.webp'}
-              type='image/webp'
-            /> */}
             <LaptopInnerImage
               src={hero.laptopInnerImage}
               initial={{ opacity: 0 }}
@@ -89,18 +85,6 @@ export default memo(LoadingScreen)
 
 // Styles
 const Screen = styled(m.div)`
-  /* position: absolute;
-  top: 13.2%;
-  left: 14%;
-  right: 16%;
-  bottom: 25%;
-  background: #000f;
-  transform: rotate(-2.35deg);
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
   position: absolute;
   top: 14%;
   left: 15%;
@@ -117,16 +101,6 @@ const Screen = styled(m.div)`
 `
 
 const LaptopInnerImage = styled(m.img)`
-  /* width: 73%;
-  position: absolute;
-  top: 8%;
-  left: 13%;
-  right: 16%;
-  bottom: 25%;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
   width: 100%;
   position: absolute;
   top: -18%;
