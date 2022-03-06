@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import { FaGithub } from 'react-icons/fa'
@@ -79,21 +79,20 @@ const Card = ({ project, index, totalProjects }) => {
           </Button>
         </BottomContainer>
       </LazyMotion>
-    </Wrapper>
+      </Wrapper>
   )
 }
 
 export default Card
 
 // Styles
-const Wrapper = styled(m.li)`
+const Wrapper = styled(m.div)`
   background: #ffffff;
   border-radius: 6px;
-  border-bottom: 10px solid rgba(0, 0, 0, 0.1);
+  /* border-bottom: 10px solid rgba(0, 0, 0, 0.1); */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  flex: 1;
-  min-width: 350px;
+  max-width: 650px;
+  flex: 1 500px;
   padding: 5px 2px;
   position: relative;
   transition: box-shadow 0.15s ease-in-out;
@@ -141,8 +140,9 @@ const Wrapper = styled(m.li)`
 `
 
 const TopContainer = styled.div`
-  border-radius: 16px;
-  height: 180px;
+  overflow: hidden;
+  border-radius: 6px;
+  height: 280px;
   top: 0;
   left: 0;
   position: relative;
@@ -152,6 +152,7 @@ const BottomContainer = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   flex: 1;
 `
 
@@ -182,7 +183,7 @@ const Description = styled.p`
 
 const Button = styled(m.button)`
   border: none;
-  width: 50%;
+  width: 30%;
   padding: 12px 20px;
   font-weight: 600;
   font-size: 1.5rem;
@@ -193,7 +194,7 @@ const Button = styled(m.button)`
   filter: drop-shadow(0 0 0.75rem hsla(36, 96%, 75%, 0.4));
 
   & a {
-    color: #392049;
+    color: #000000;
     display: block;
   }
 
@@ -204,7 +205,7 @@ const Button = styled(m.button)`
 
 const ProjectImageContainer = styled.div`
   width: 100%;
-  height: 180px;
+  height: 280px;
 `
 
 const ProjectImage = styled(Image)`

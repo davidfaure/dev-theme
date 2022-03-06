@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React  from 'react'
 import styled from 'styled-components'
-import Image from 'next/image'
 
 import Parallax from '../Parallax'
 import Card from './Card'
@@ -9,6 +8,7 @@ import Wave from '../Waves/Wave'
 import { projects } from '../../data'
 
 const Projects = () => {
+
   return (
     <Wrapper>
       <Container id='projects'>
@@ -16,7 +16,7 @@ const Projects = () => {
         <InfoText dangerouslySetInnerHTML={{ __html: projects.infoText }} />
         <Parallax offset={10} offsetInitial={30}>
           <CardList totalProjects={projects.projectsData.length}>
-            {projects.projectsData.slice(0, 3).map((project, index) => (
+            {projects.projectsData.map((project, index) => (
               <Card
                 key={project.id}
                 project={project}
@@ -88,12 +88,6 @@ const InfoText = styled.div`
       font-size: 1.8rem;
     }
   }
-`
-
-const BackgroundImage = styled(Image)`
-  position: absolute;
-  left: 0;
-  z-index: 120;
 `
 
 const WaveWrapper = styled.div`

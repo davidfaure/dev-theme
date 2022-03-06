@@ -1,6 +1,6 @@
 # License
 
-This licence grants you a non-exclusive right to make use of theme you have purchased. Nico Pellerin retains ownership of the theme but grants you the license on these terms.
+This licence grants you a non-exclusive right to make use of theme you have purchased. David Faure retains ownership of the theme but grants you the license on these terms.
 
 ## You can…
 

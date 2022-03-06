@@ -1,9 +1,7 @@
 import React, { useState, useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Image from 'next/image'
-// import { useMedia } from 'react-use-media'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
-import dynamic from 'next/dynamic'
 
 import ViewMoreBar from './ViewMoreBar'
 import Parallax from '../Parallax'

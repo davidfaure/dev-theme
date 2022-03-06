@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
   :root {
   --NavTextColor: #001220;
   --textColor: #FFFFFF;
+   
   --bubbleBig: #001220;
   --bubbleSide: #FBAE3D;
 
@@ -32,8 +33,6 @@ const GlobalStyles = createGlobalStyle`
   --backgroundColor: hsl(36, 96%, 61%);
     background: var(--backgroundColor);
 
-
-  --inputBackground: hsl(36, 96%, 59%);
   --inputBackground: hsla(36, 96%, 75%, 0.8);
 
   --inputBorder: #001220;
